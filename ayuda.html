@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500&family=Oleo+Script:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Oleo+Script:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -40,8 +40,9 @@
             <nav
               class="navbar navbar-expand-lg navbar-light bg-white justify-content-between"
             >
+              <!-- Botón hamburguesa para pantallas pequeñas -->
               <button
-                class="navbar-toggler text-dark"
+                class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
@@ -51,6 +52,7 @@
               >
                 <span class="navbar-toggler-icon"></span>
               </button>
+
               <div
                 class="navbar-collapse collapse justify-content-end"
                 id="navbarNav"
@@ -73,6 +75,8 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="ayuda.html">Ayuda</a>
                   </li>
+                  <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
                 </ul>
               </div>
             </nav>
@@ -87,8 +91,9 @@
         <h2 class="text-center mb-4">¿Cómo podemos ayudarte?</h2>
 
         <div class="row">
-          <!-- Columna izquierda con preguntas frecuentes -->
+          <!-- Columna izquierda con preguntas frecuentes y recomendaciones -->
           <div class="col-md-6 mb-4">
+            <!-- List Group de Preguntas Frecuentes (FAQ) -->
             <div class="mb-4">
               <h4>Preguntas Frecuentes</h4>
               <ul class="list-group">
@@ -105,24 +110,67 @@
                   </button>
                   <div class="collapse" id="faq1">
                     <p>
-                      Para contactar, envía un correo a [correo electrónico] o
-                      llama al [número de teléfono].
+                      Para contactar a nuestro servicio de atención al cliente,
+                      puedes enviar un correo electrónico a [correo electrónico]
+                      o llamar al [número de teléfono]. Estamos disponibles de
+                      lunes a viernes de 9:00 AM a 5:00 PM.
+                    </p>
+                  </div>
+                </li>
+                <!-- Puedes agregar más preguntas y respuestas según sea necesario -->
+                <li class="list-group-item">
+                  <button
+                    class="btn btn-link"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                    aria-expanded="false"
+                    aria-controls="faq2"
+                  >
+                    ¿Cuáles son los métodos de pago aceptados?
+                  </button>
+                  <div class="collapse" id="faq2">
+                    <p>
+                      Aceptamos pagos con tarjeta de crédito, transferencia
+                      bancaria y PayPal. Puedes encontrar más detalles sobre los
+                      métodos de pago en nuestra sección de pagos.
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
 
+            <!-- Sección de Recomendaciones -->
             <div class="mb-4">
               <h4>Recomendaciones</h4>
               <div class="row">
+                <!-- Card de Recomendación 1 -->
                 <div class="col-lg-12 mb-4">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">Recomendación 1</h5>
                       <p class="card-text">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Quisquam, culpa.
+                        elit. Unde sed quod, enim iste sapiente vitae, ipsam
+                        nobis eum voluptate quasi voluptatibus voluptas
+                        consequatur nam assumenda animi quas quae quis
+                        quibusdam?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card de Recomendación 2 -->
+                <div class="col-lg-12 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Recomendación 2</h5>
+                      <p class="card-text">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Cupiditate dolore minus nisi? Labore, nisi
+                        eligendi! Corporis voluptatum distinctio ipsa ullam
+                        amet, porro consequuntur cum sed dolores aperiam
+                        similique saepe aliquam?
                       </p>
                     </div>
                   </div>
@@ -131,18 +179,39 @@
             </div>
           </div>
 
-          <!-- Columna derecha con tutoriales y formulario -->
+          <!-- Columna derecha con tutoriales y formulario de contacto -->
           <div class="col-md-6">
+            <!-- Sección de Tutoriales -->
             <div class="mb-4">
               <h4>Tutoriales</h4>
               <div class="row">
+                <!-- Card de Tutorial 1 -->
                 <div class="col-lg-12 mb-4">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">Tutorial 1</h5>
                       <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Quisquam.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Cumque qui blanditiis facere, quae perferendis quisquam
+                        non alias quas dolores voluptate deleniti aspernatur
+                        suscipit iure in! Hic recusandae pariatur tempora ipsam?
+                      </p>
+                      <a href="#" class="btn btn-primary">Ver Tutorial</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card de Tutorial 2 -->
+                <div class="col-lg-12 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Tutorial 2</h5>
+                      <p class="card-text">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Delectus, nihil. Quam accusantium, atque commodi
+                        rem architecto animi similique fuga quis eveniet
+                        delectus voluptate sint ea id, reiciendis blanditiis
+                        praesentium facere!
                       </p>
                       <a href="#" class="btn btn-primary">Ver Tutorial</a>
                     </div>
@@ -151,6 +220,7 @@
               </div>
             </div>
 
+            <!-- Formulario de Contacto -->
             <div>
               <h4>Contacto</h4>
               <form id="helpForm">
@@ -178,6 +248,30 @@
                   />
                 </div>
 
+                <div class="mb-3">
+                  <label for="telefonoAyuda" class="form-label"
+                    >Número de Teléfono</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefonoAyuda"
+                    name="telefonoAyuda"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="mensajeAyuda" class="form-label">Mensaje</label>
+                  <textarea
+                    class="form-control"
+                    id="mensajeAyuda"
+                    name="mensajeAyuda"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+
                 <button type="submit" class="btn btn-primary">
                   Enviar Mensaje
                 </button>
@@ -188,6 +282,43 @@
       </div>
     </section>
 
+        <!-- Modal Iniciar Sesión -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
+                <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
+                <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Modal Registrarse -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
+                  <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
+                  <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
+                  <a href="admin.html" class="btn btn-primary">Registrarse</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <!-- Pie de página -->
     <footer class="bg-white text-dark text-center py-3">
       <div class="container">
@@ -195,15 +326,23 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Enlaces a scripts de Bootstrap y jQuery (si es necesario) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // JavaScript para validar y enviar el formulario de ayuda
         const helpForm = document.getElementById("helpForm");
+
         helpForm.addEventListener("submit", function (event) {
-          event.preventDefault();
+          event.preventDefault(); // Evitar el envío predeterminado
+
+          // Puedes agregar aquí la lógica para validar y enviar el formulario por correo electrónico
+
+          // Ejemplo: Mostrar un mensaje de éxito
           alert("Mensaje de ayuda enviado con éxito");
+
+          // Puedes redirigir a otra página o realizar otras acciones según tus necesidades
         });
       });
     </script>

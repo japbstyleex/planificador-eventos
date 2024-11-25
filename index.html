@@ -4,14 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tu Empresa</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" href="images/logo.png" />
   </head>
@@ -21,61 +15,21 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-12 col-lg-2">
-            <a href="index.html"
-              ><img
-                src="images/image-17.png"
-                alt="Logo de la empresa"
-                class="img-fluid"
-                width="100"
-            /></a>
+            <a href="index.html"><img src="images/image-17.png" alt="Logo de la empresa" class="img-fluid" width="100" /></a>
           </div>
           <div class="col-12 col-lg-10">
-            <nav
-              class="navbar navbar-expand-lg navbar-light bg-white justify-content-between"
-            >
-              <button
-                class="navbar-toggler text-dark"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-              >
+            <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="sobre-nosotros.html"
-                      >Sobre Nosotros</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="servicios.html">Servicios</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contratenos.html">Contrátenos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="ayuda.html">Ayuda</a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="#loginModal"
-                      data-bs-toggle="modal"
-                      >Iniciar Sesión</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      href="#registerModal"
-                      data-bs-toggle="modal"
-                      >Registrarse</a
-                    >
-                  </li>
+                  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                  <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
                 </ul>
               </div>
             </nav>
@@ -84,166 +38,89 @@
       </div>
     </header>
 
-    <!-- Banner Principal con Carousel -->
-    <section id="banner" class="bg-custom text-white text-center">
-      <div class="container">
-        <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="./images/image-1.png"
-                class="d-block w-100"
-                alt="Slide 1"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="./images/image-2.png"
-                class="d-block w-100"
-                alt="Slide 2"
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="./images/image-3.png"
-                class="d-block w-100"
-                alt="Slide 3"
-              />
-            </div>
+<!-- Título del Banner -->
+<section id="titulo-banner" class="bg-custom text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">ARMAVE</h1>
+      <p class="lead">Servicios de calidad para ti.</p>
+    </div>
+  </section>
+  
+  <!-- Banner -->
+  <section id="banner" class="bg-custom text-white text-center">
+    <div class="container">
+      <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./images/image-1.png" class="d-block w-100" alt="Slide 1" />
           </div>
-        </div>
-        <div class="carousel-caption d-none d-md-block">
-          <h1 class="display-4">ARMAVE</h1>
-          <p class="lead">Servicios de calidad para ti.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Texto -->
-    <section id="texto" class="bg-dark text-white text-center py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <p class="lead">Aquí empieza tu historia</p>
-            <p>
-              <strong>ARMAVE</strong> se dedica a organizar eventos de alta
-              calidad, con compromiso y excelencia en cada detalle.
-            </p>
-            <p>
-              Nuestra misión es convertir tus sueños en realidad, ofreciendo una
-              experiencia única y confiable.
-            </p>
-            <p>
-              Gracias por elegirnos. Esperamos crear momentos inolvidables
-              juntos.
-            </p>
+          <div class="carousel-item">
+            <img src="./images/image-2.png" class="d-block w-100" alt="Slide 2" />
+          </div>
+          <div class="carousel-item">
+            <img src="./images/image-3.png" class="d-block w-100" alt="Slide 3" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  
+  <!-- Texto -->
+  <section id="texto" class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="lead">Aquí empieza tu historia</p>
+          <p><strong>ARMAVE</strong> ofrece soluciones creativas e innovadoras para tus eventos.</p>
+          <p>Con compromiso y experiencia, transformamos tus sueños en realidad.</p>
+          <p>Estamos aquí para crear momentos inolvidables contigo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
-    <!-- Botón para Contratar Servicio en la esquina inferior izquierda -->
+    <!-- Botón Contratar -->
     <section id="contratar" class="fixed-bottom pb-3 pl-3">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-left">
-            <a href="contratenos.html" class="btn btn-primary btn-lg"
-              >Contratar un Servicio</a
-            >
+            <a href="contratenos.html" class="btn btn-primary btn-lg">Contratar un Servicio</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Ventana Modal de Iniciar Sesión -->
-    <div
-      class="modal fade"
-      id="loginModal"
-      tabindex="-1"
-      aria-labelledby="loginModalLabel"
-      aria-hidden="true"
-    >
+    <!-- Modal Iniciar Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <div class="mb-3">
-              <label for="username">Usuario</label
-              ><input type="text" class="form-control" id="username" required />
-            </div>
-            <div class="mb-3">
-              <label for="password">Contraseña</label
-              ><input
-                type="password"
-                class="form-control"
-                id="password"
-                required
-              />
-            </div>
+            <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
+            <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
             <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Ventana Modal de Registrarse -->
-    <div
-      class="modal fade"
-      id="registerModal"
-      tabindex="-1"
-      aria-labelledby="registerModalLabel"
-      aria-hidden="true"
-    >
+    <!-- Modal Registrarse -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
             <form>
-              <div class="mb-3">
-                <label for="registerName" class="form-label">Nombre</label
-                ><input
-                  type="text"
-                  class="form-control"
-                  id="registerName"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="registerEmail" class="form-label"
-                  >Correo Electrónico</label
-                ><input
-                  type="email"
-                  class="form-control"
-                  id="registerEmail"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="registerPassword" class="form-label"
-                  >Contraseña</label
-                ><input
-                  type="password"
-                  class="form-control"
-                  id="registerPassword"
-                  required
-                />
-              </div>
+              <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
+              <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
+              <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
               <a href="admin.html" class="btn btn-primary">Registrarse</a>
             </form>
           </div>
@@ -258,7 +135,7 @@
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

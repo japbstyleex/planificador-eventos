@@ -63,6 +63,8 @@
                   <li class="nav-item">
                     <a class="nav-link" href="ayuda.html">Ayuda</a>
                   </li>
+                  <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
                 </ul>
               </div>
             </nav>
@@ -221,6 +223,43 @@
         </div>
       </div>
     </section>
+
+        <!-- Modal Iniciar Sesión -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
+                <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
+                <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Modal Registrarse -->
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
+                  <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
+                  <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
+                  <a href="admin.html" class="btn btn-primary">Registrarse</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
     <!-- Pie de página -->
     <footer
