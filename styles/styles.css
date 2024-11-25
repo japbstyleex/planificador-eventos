@@ -1,0 +1,93 @@
+body {
+  background-color: #9adac8;
+  font-family: "Alegreya Sans", sans-serif;
+}
+
+header {
+  position: relative;
+}
+
+.navbar-brand img {
+  max-width: 100%;
+  height: auto;
+}
+
+#texto {
+  background-color: #343a40; /* Color de fondo oscuro */
+}
+
+#texto p {
+  font-size: 1.5rem;
+}
+
+#banner {
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-end;
+}
+
+#banner h1 {
+  margin-bottom: 20px;
+}
+
+#contratar {
+  padding: 50px 0;
+}
+
+#texto {
+  padding: 30px 0;
+}
+section {
+  padding: 30px 0; /* Espaciado interior de las secciones */
+}
+
+/* Estilos para el texto en las secciones */
+
+section p {
+  font-size: 1.2rem;
+}
+
+footer {
+  background-color: #343a40; /* Fondo oscuro para el pie de página */
+}
+
+footer p {
+  font-size: 0.8rem;
+}
+
+a {
+  color: #007bff; /* Color azul para los enlaces */
+}
+
+a:hover {
+  color: #0056b3; /* Color azul más oscuro al pasar el ratón por encima */
+}
+
+/* Otros estilos específicos según las secciones (por ejemplo, sección de equipo, cultura, etc.) */
+
+#equipo {
+  background-color: #ffffff; /* Fondo blanco para la sección de equipo */
+}
+
+#cultura {
+  background-color: #343a40; /* Fondo oscuro para la sección de cultura */
+  color: #fff; /* Texto blanco en la sección de cultura */
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.bg-custom {
+  background-color: #9adac8;
+}
