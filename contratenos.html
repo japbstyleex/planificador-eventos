@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contrátenos - ARMAVE</title>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,6 +59,10 @@
               <input type="tel" class="form-control" id="telefono" name="telefono" required />
             </div>
             <div class="col-md-6">
+              <label for="presupuesto" class="form-label">Presupuesto</label>
+              <input type="number" class="form-control" id="presupuesto" name="presupuesto" placeholder="Introduce tu presupuesto (en €)" required />
+            </div>
+            <div class="col-md-6">
               <label for="servicio" class="form-label">Servicio</label>
               <select class="form-select" id="servicio" name="servicio" required>
                 <option value="">Seleccionar Servicio</option>
@@ -72,7 +76,7 @@
               <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+              <button type="button" class="btn btn-primary" id="mostrarResumenBtn">Mostrar Resumen</button>
             </div>
           </form>
 
@@ -83,60 +87,87 @@
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.834708655941!2d-6.00965844084506!3d37.39374107496211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c117471419f%3A0xed36a7d3b48f3117!2sEscuela%20Superior%20de%20Hosteleria%20de%20Sevilla!5e0!3m2!1ses!2ses!4v1709579310664!5m2!1ses!2ses"></iframe>
           </div>
           <div class="col-md-6">
+          <!-- Opciones de pago -->
+          <div>
+            <h4>Opciones de Pago</h4>
+            <p>
+              Ofrecemos métodos de pago en tiempo real como tarjetas de crédito, PayPal y transferencia bancaria para garantizar la confirmación inmediata de tus reservas.
+            </p>
+            <a href="pago.html" class="btn btn-primary">Ir a Opciones de Pago</a>
+          </div>
+
             <!-- Política de Privacidad -->
             <div>
               <h4>Política de Privacidad</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                quam velit, vulputate eu pharetra nec, mattis ac neque. Duis
-                vulputate commodo lectus, ac blandit elit tincidunt id. Sed
-                rhoncus, tortor sed eleifend tristique, tortor mauris molestie
-                elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet
-                elit iaculis pretium sit amet quis magna.
+                Tus datos están seguros con nosotros. Consulta nuestra política para más detalles sobre cómo manejamos tu información personal.
               </p>
-              <!-- Puedes agregar más contenido de la política de privacidad según tus necesidades -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-        <!-- Modal Iniciar Sesión -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
-                <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
-                <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
-              </div>
-            </div>
+    <!-- Modal de Resumen del Evento -->
+    <div class="modal fade" id="resumenModal" tabindex="-1" aria-labelledby="resumenModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resumenModalLabel">Resumen de tu Evento</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Nombre:</strong> <span id="nombreResumen"></span></p>
+            <p><strong>Correo Electrónico:</strong> <span id="correoResumen"></span></p>
+            <p><strong>Número de Teléfono:</strong> <span id="telefonoResumen"></span></p>
+            <p><strong>Presupuesto:</strong> <span id="presupuestoResumen"></span> €</p>
+            <p><strong>Servicio Seleccionado:</strong> <span id="servicioResumen"></span></p>
+            <p><strong>Mensaje:</strong> <span id="mensajeResumen"></span></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="confirmarReservaBtn">Confirmar y Proceder al Pago</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal Iniciar Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
+            <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
+            <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
     
-        <!-- Modal Registrarse -->
-        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
-                  <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
-                  <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
-                  <a href="admin.html" class="btn btn-primary">Registrarse</a>
-                </form>
-              </div>
-            </div>
+    <!-- Modal Registrarse -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
+              <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
+              <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
+              <a href="admin.html" class="btn btn-primary">Registrarse</a>
+            </form>
           </div>
         </div>
+      </div>
+    </div>
 
     <!-- Pie de página -->
     <footer class="bg-white text-dark text-center py-3" style="position: fixed; bottom: 0; width: 100%">
@@ -144,6 +175,44 @@
         <p>&copy; 2024 ARMAVE S.A. Todos los derechos reservados.</p>
       </div>
     </footer>
+
+    <!-- Scripts necesarios para el funcionamiento del modal -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mostrarResumenBtn = document.getElementById("mostrarResumenBtn");
+        const nombreResumen = document.getElementById("nombreResumen");
+        const correoResumen = document.getElementById("correoResumen");
+        const telefonoResumen = document.getElementById("telefonoResumen");
+        const presupuestoResumen = document.getElementById("presupuestoResumen");
+        const servicioResumen = document.getElementById("servicioResumen");
+        const mensajeResumen = document.getElementById("mensajeResumen");
+        
+        // Cuando se haga clic en "Mostrar Resumen", mostrar el modal
+        mostrarResumenBtn.addEventListener("click", function () {
+          // Obtener los valores del formulario
+          nombreResumen.textContent = document.getElementById("nombre").value;
+          correoResumen.textContent = document.getElementById("correo").value;
+          telefonoResumen.textContent = document.getElementById("telefono").value;
+          presupuestoResumen.textContent = document.getElementById("presupuesto").value;
+          servicioResumen.textContent = document.getElementById("servicio").value;
+          mensajeResumen.textContent = document.getElementById("mensaje").value;
+          
+          // Mostrar el modal
+          const resumenModal = new bootstrap.Modal(document.getElementById("resumenModal"));
+          resumenModal.show();
+        });
+
+        // Botón para confirmar la reserva y proceder al pago
+        const confirmarReservaBtn = document.getElementById("confirmarReservaBtn");
+        confirmarReservaBtn.addEventListener("click", function () {
+          // Aquí podrías redirigir a la página de pago, por ejemplo:
+          window.location.href = "pago.html"; // Redirige a la página de pago
+        });
+      });
+    </script>
 
     <!-- Enlaces a scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -153,7 +222,7 @@
         const contactForm = document.getElementById("contactForm");
         contactForm.addEventListener("submit", function (event) {
           event.preventDefault();
-          alert("Mensaje enviado con éxito");
+          alert("Mensaje enviado con éxito. ¡Gracias por elegir ARMAVE!");
         });
       });
     </script>
