@@ -1,54 +1,35 @@
 <?php
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "myarmaveae"; // Cambia según tu configuración
-$password = "BvWd9A5K"; // Cambia según tu configuración
-$dbname = "armave"; // Nombre de tu base de datos
+session_start(); // Inicia la sesión
+include('conexion_be.php'); // Incluye la conexión a la base de datos
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Establecer la codificación UTF-8 para la conexión
-$conn->set_charset("utf8");
-
-// Obtener datos del formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre_usuario = $_POST['username'];
-    $contrasena = $_POST['password'];
+    // Recuperar los datos enviados por el formulario de inicio de sesión
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    // Consulta para obtener el usuario
-    $sql = "SELECT * FROM usuarios WHERE nombre_usuario = '$nombre_usuario' AND contrasena = '$contrasena'";
-    $result = $conn->query($sql);
+    // Consulta SQL para obtener los datos del usuario
+    $query = "SELECT * FROM usuarios WHERE nombre_usuario = '$username'";
+    $result = $conexion->query($query);
 
-    // Verificar si el usuario existe
     if ($result->num_rows > 0) {
-        // Obtener los datos del usuario
-        $row = $result->fetch_assoc();
+        // Usuario encontrado, comprobar la contraseña
+        $user = $result->fetch_assoc();
+        
+        // Verificar la contraseña (en este caso sin encriptar, pero se recomienda usar contraseñas hash)
+        if ($user['contrasena'] === $password) {
+            // Contraseña correcta, iniciar sesión
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['nombre_usuario'];
+            $_SESSION['role'] = $user['rol'];
 
-        // Si el rol es admin, redirigir a admin.html
-        if ($row['rol'] == 'admin') {
-            session_start();
-            $_SESSION['username'] = $row['nombre_usuario'];
-            $_SESSION['role'] = 'admin';
-            header("Location: admin.html");
-            exit();
-        } else {
-            // Si el rol es usuario, redirigir a la página principal y mostrar el nombre en la navbar
-            session_start();
-            $_SESSION['username'] = $row['nombre_usuario'];
-            $_SESSION['role'] = 'usuario';
+            // Redirigir a la página principal o al panel de usuario
             header("Location: index.html");
-            exit();
+            exit;
+        } else {
+            echo "Contraseña incorrecta.";
         }
     } else {
-        echo "<script>alert('Usuario o contraseña incorrectos'); window.history.back();</script>";
+        echo "Usuario no encontrado.";
     }
 }
-
-$conn->close();
 ?>
