@@ -59,15 +59,15 @@
           <div id="pagoTarjeta" class="d-none">
             <div class="col-md-6">
               <label for="nombreTitular" class="form-label">Nombre del Titular</label>
-              <input type="text" class="form-control" id="nombreTitular" name="nombreTitular" placeholder="Nombre como aparece en la tarjeta" />
+              <input type="text" class="form-control" id="nombreTitular" name="nombreTitular" placeholder="Nombre como aparece en la tarjeta" required />
             </div>
             <div class="col-md-6">
               <label for="numeroTarjeta" class="form-label">Número de Tarjeta</label>
-              <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" maxlength="16" placeholder="1234 5678 9012 3456" />
+              <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" maxlength="16" placeholder="1234 5678 9012 3456" required />
             </div>
             <div class="col-md-3">
               <label for="mesExpiracion" class="form-label">Mes de Expiración</label>
-              <select class="form-select" id="mesExpiracion" name="mesExpiracion">
+              <select class="form-select" id="mesExpiracion" name="mesExpiracion" required>
                 <option value="">Mes</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -85,7 +85,7 @@
             </div>
             <div class="col-md-3">
               <label for="anioExpiracion" class="form-label">Año de Expiración</label>
-              <select class="form-select" id="anioExpiracion" name="anioExpiracion">
+              <select class="form-select" id="anioExpiracion" name="anioExpiracion" required>
                 <option value="">Año</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
@@ -95,7 +95,7 @@
             </div>
             <div class="col-md-3">
               <label for="cvv" class="form-label">CVV</label>
-              <input type="password" class="form-control" id="cvv" name="cvv" maxlength="3" placeholder="123" />
+              <input type="password" class="form-control" id="cvv" name="cvv" maxlength="3" placeholder="123" required />
             </div>
           </div>
 
@@ -155,6 +155,28 @@
             pagoTransferencia.classList.remove("d-none");
           } else if (metodoPago.value === "bizum") {
             pagoBizum.classList.remove("d-none");
+          }
+        });
+
+        // Validación al enviar el formulario
+        const paymentForm = document.getElementById("paymentForm");
+        paymentForm.addEventListener("submit", function (event) {
+          if (metodoPago.value === "") {
+            event.preventDefault();
+            alert("Por favor, selecciona un método de pago.");
+            return;
+          }
+
+          // Validaciones adicionales dependiendo del método de pago
+          if (metodoPago.value === "tarjeta") {
+            if (document.getElementById("nombreTitular").value === "" ||
+                document.getElementById("numeroTarjeta").value === "" ||
+                document.getElementById("mesExpiracion").value === "" ||
+                document.getElementById("anioExpiracion").value === "" ||
+                document.getElementById("cvv").value === "") {
+              event.preventDefault();
+              alert("Por favor, completa todos los campos de tarjeta.");
+            }
           }
         });
       });

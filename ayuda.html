@@ -2,11 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Ayuda - Tu Empresa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Ayuda - ARMAVE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -117,7 +114,6 @@
                     </p>
                   </div>
                 </li>
-                <!-- Puedes agregar más preguntas y respuestas según sea necesario -->
                 <li class="list-group-item">
                   <button
                     class="btn btn-link"
@@ -223,7 +219,7 @@
             <!-- Formulario de Contacto -->
             <div>
               <h4>Contacto</h4>
-              <form id="helpForm">
+              <form id="helpForm" onsubmit="return validateHelpForm()">
                 <div class="mb-3">
                   <label for="nombreAyuda" class="form-label">Nombre</label>
                   <input
@@ -282,42 +278,59 @@
       </div>
     </section>
 
-        <!-- Modal Iniciar Sesión -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <!-- Modal Iniciar Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="loginForm" action="login.php" method="POST">
+              <div class="mb-3">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" required />
               </div>
-              <div class="modal-body">
-                <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
-                <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
-                <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
+              <div class="mb-3">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required />
               </div>
-            </div>
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </form>
           </div>
         </div>
-    
-        <!-- Modal Registrarse -->
-        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
-                  <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
-                  <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
-                  <a href="admin.html" class="btn btn-primary">Registrarse</a>
-                </form>
-              </div>
-            </div>
+      </div>
+    </div>
+
+    <!-- Modal Registrarse -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm">
+          <div class="mb-3">
+            <label for="registerName">Nombre</label>
+            <input type="text" class="form-control" id="registerName" required />
           </div>
-        </div>
+          <div class="mb-3">
+            <label for="registerEmail">Correo Electrónico</label>
+            <input type="email" class="form-control" id="registerEmail" required />
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword">Contraseña</label>
+            <input type="password" class="form-control" id="registerPassword" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Pie de página -->
     <footer class="bg-white text-dark text-center py-3">
@@ -330,21 +343,77 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // JavaScript para validar y enviar el formulario de ayuda
-        const helpForm = document.getElementById("helpForm");
+      function validateHelpForm() {
+        const nombre = document.getElementById('nombreAyuda').value;
+        const email = document.getElementById('emailAyuda').value;
+        const telefono = document.getElementById('telefonoAyuda').value;
+        const mensaje = document.getElementById('mensajeAyuda').value;
 
-        helpForm.addEventListener("submit", function (event) {
-          event.preventDefault(); // Evitar el envío predeterminado
+        if (!nombre || !email || !telefono || !mensaje) {
+          alert('Por favor, completa todos los campos del formulario.');
+          return false;
+        }
 
-          // Puedes agregar aquí la lógica para validar y enviar el formulario por correo electrónico
-
-          // Ejemplo: Mostrar un mensaje de éxito
-          alert("Mensaje de ayuda enviado con éxito");
-
-          // Puedes redirigir a otra página o realizar otras acciones según tus necesidades
-        });
+        alert('Mensaje enviado con éxito.');
+        return true;
+      }
+            // Validación de formulario de inicio de sesión
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        if (!username || !password) {
+          event.preventDefault();
+          alert("Por favor, complete todos los campos.");
+        }
       });
+      document.addEventListener('DOMContentLoaded', function() {
+    const registerForm = document.getElementById('registerForm');
+    const nameInput = document.getElementById('registerName');
+    const emailInput = document.getElementById('registerEmail');
+    const passwordInput = document.getElementById('registerPassword');
+
+    // Verifica si ya hay un usuario registrado en localStorage
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+      // Si ya hay un usuario registrado, mostrarlo en la página
+      alert(`Bienvenido de nuevo, ${userName}!`);
+    }
+
+    // Agrega el evento de submit al formulario de registro
+    registerForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que se envíe el formulario por defecto
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Validación de los campos
+      if (!name || !email || !password) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+
+      // Validación de correo electrónico
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert('Por favor, ingresa un correo electrónico válido.');
+        return;
+      }
+
+      // Validación de la contraseña
+      if (password.length < 6) {
+        alert('La contraseña debe tener al menos 6 caracteres.');
+        return;
+      }
+
+      // Si la validación pasa, guardamos el nombre en localStorage
+      localStorage.setItem('userName', name);
+
+      // Mostrar mensaje de éxito y recargar la página
+      alert(`¡Registro exitoso! Bienvenido, ${name}.`);
+      window.location.reload(); // Recarga la página para mostrar el nombre del usuario registrado
+    });
+  });
     </script>
   </body>
 </html>

@@ -27,7 +27,7 @@
                   <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                   <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
                   <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="contratenos.html">Contrátenos</a></li>
                   <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
                   <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
                   <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
@@ -86,15 +86,16 @@
             <iframe width="100%" height="300" frameborder="0" style="border: 0"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.834708655941!2d-6.00965844084506!3d37.39374107496211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126c117471419f%3A0xed36a7d3b48f3117!2sEscuela%20Superior%20de%20Hosteleria%20de%20Sevilla!5e0!3m2!1ses!2ses!4v1709579310664!5m2!1ses!2ses"></iframe>
           </div>
+
           <div class="col-md-6">
-          <!-- Opciones de pago -->
-          <div>
-            <h4>Opciones de Pago</h4>
-            <p>
-              Ofrecemos métodos de pago en tiempo real como tarjetas de crédito, PayPal y transferencia bancaria para garantizar la confirmación inmediata de tus reservas.
-            </p>
-            <a href="pago.html" class="btn btn-primary">Ir a Opciones de Pago</a>
-          </div>
+            <!-- Opciones de pago -->
+            <div>
+              <h4>Opciones de Pago</h4>
+              <p>
+                Ofrecemos métodos de pago en tiempo real como tarjetas de crédito, PayPal y transferencia bancaria para garantizar la confirmación inmediata de tus reservas.
+              </p>
+              <a href="pago.html" class="btn btn-primary">Ir a Opciones de Pago</a>
+            </div>
 
             <!-- Política de Privacidad -->
             <div>
@@ -141,33 +142,50 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <div class="mb-3"><label for="username">Usuario</label><input type="text" class="form-control" id="username" required /></div>
-            <div class="mb-3"><label for="password">Contraseña</label><input type="password" class="form-control" id="password" required /></div>
-            <a href="admin.html" class="btn btn-primary">Iniciar Sesión</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Modal Registrarse -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3"><label for="registerName">Nombre</label><input type="text" class="form-control" id="registerName" required /></div>
-              <div class="mb-3"><label for="registerEmail">Correo Electrónico</label><input type="email" class="form-control" id="registerEmail" required /></div>
-              <div class="mb-3"><label for="registerPassword">Contraseña</label><input type="password" class="form-control" id="registerPassword" required /></div>
-              <a href="admin.html" class="btn btn-primary">Registrarse</a>
+            <form id="loginForm" action="login.php" method="POST">
+              <div class="mb-3">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" required />
+              </div>
+              <div class="mb-3">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
             </form>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal Registrarse -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm">
+          <div class="mb-3">
+            <label for="registerName">Nombre</label>
+            <input type="text" class="form-control" id="registerName" required />
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail">Correo Electrónico</label>
+            <input type="email" class="form-control" id="registerEmail" required />
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword">Contraseña</label>
+            <input type="password" class="form-control" id="registerPassword" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Pie de página -->
     <footer class="bg-white text-dark text-center py-3" style="position: fixed; bottom: 0; width: 100%">
@@ -192,6 +210,14 @@
         
         // Cuando se haga clic en "Mostrar Resumen", mostrar el modal
         mostrarResumenBtn.addEventListener("click", function () {
+          // Validación de que todos los campos son completados
+          if (document.getElementById("nombre").value === "" || document.getElementById("correo").value === "" || 
+              document.getElementById("telefono").value === "" || document.getElementById("presupuesto").value === "" || 
+              document.getElementById("servicio").value === "" || document.getElementById("mensaje").value === "") {
+            alert("Por favor, completa todos los campos.");
+            return;
+          }
+
           // Obtener los valores del formulario
           nombreResumen.textContent = document.getElementById("nombre").value;
           correoResumen.textContent = document.getElementById("correo").value;
@@ -212,19 +238,63 @@
           window.location.href = "pago.html"; // Redirige a la página de pago
         });
       });
-    </script>
-
-    <!-- Enlaces a scripts de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const contactForm = document.getElementById("contactForm");
-        contactForm.addEventListener("submit", function (event) {
+            // Validación de formulario de inicio de sesión
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        if (!username || !password) {
           event.preventDefault();
-          alert("Mensaje enviado con éxito. ¡Gracias por elegir ARMAVE!");
-        });
+          alert("Por favor, complete todos los campos.");
+        }
       });
+      document.addEventListener('DOMContentLoaded', function() {
+    const registerForm = document.getElementById('registerForm');
+    const nameInput = document.getElementById('registerName');
+    const emailInput = document.getElementById('registerEmail');
+    const passwordInput = document.getElementById('registerPassword');
+
+    // Verifica si ya hay un usuario registrado en localStorage
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+      // Si ya hay un usuario registrado, mostrarlo en la página
+      alert(`Bienvenido de nuevo, ${userName}!`);
+    }
+
+    // Agrega el evento de submit al formulario de registro
+    registerForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que se envíe el formulario por defecto
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Validación de los campos
+      if (!name || !email || !password) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+
+      // Validación de correo electrónico
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert('Por favor, ingresa un correo electrónico válido.');
+        return;
+      }
+
+      // Validación de la contraseña
+      if (password.length < 6) {
+        alert('La contraseña debe tener al menos 6 caracteres.');
+        return;
+      }
+
+      // Si la validación pasa, guardamos el nombre en localStorage
+      localStorage.setItem('userName', name);
+
+      // Mostrar mensaje de éxito y recargar la página
+      alert(`¡Registro exitoso! Bienvenido, ${name}.`);
+      window.location.reload(); // Recarga la página para mostrar el nombre del usuario registrado
+    });
+  });
     </script>
   </body>
 </html>

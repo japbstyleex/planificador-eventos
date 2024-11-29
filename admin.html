@@ -34,40 +34,16 @@
           </div>
           <div class="col-12 col-lg-10">
             <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
-              <!-- Botón hamburguesa para pantallas pequeñas -->
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div
-                class="navbar-collapse collapse justify-content-end"
-                id="navbarNav"
-              >
+              <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="sobre-nosotros.html"
-                      >Sobre Nosotros</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="servicios.html">Servicios</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contratenos.html">Contrátenos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="ayuda.html">Ayuda</a>
-                  </li>
+                  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                  <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+                  <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
+                  <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
                 </ul>
               </div>
             </nav>
@@ -88,7 +64,7 @@
             data-bs-toggle="modal"
             data-bs-target="#modalServicios"
           >
-            Servicios
+            Añadir/Modificar Servicio
           </button>
           <!-- Modal para Servicios -->
           <div class="modal" id="modalServicios" tabindex="-1">
@@ -96,48 +72,23 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3>Añadir/Modificar Servicio</h3>
-                  <button
-                    type="button"
-                    class="btn btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form id="addServiceForm">
                     <div class="mb-3">
-                      <label for="nombreServicio" class="form-label"
-                        >Nombre del Servicio:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nombreServicio"
-                        required
-                      />
+                      <label for="nombreServicio" class="form-label">Nombre del Servicio:</label>
+                      <input type="text" class="form-control" id="nombreServicio" required />
                     </div>
                     <div class="mb-3">
-                      <label for="descripcionServicio" class="form-label"
-                        >Descripción del Servicio:</label
-                      >
-                      <textarea
-                        class="form-control"
-                        id="descripcionServicio"
-                        rows="3"
-                        required
-                      ></textarea>
+                      <label for="descripcionServicio" class="form-label">Descripción del Servicio:</label>
+                      <textarea class="form-control" id="descripcionServicio" rows="3" required></textarea>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancelar
-                  </button>
-                  <button type="button" class="btn btn-primary">Añadir</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="submitServicioBtn">Añadir</button>
                 </div>
               </div>
             </div>
@@ -155,7 +106,7 @@
             data-bs-toggle="modal"
             data-bs-target="#modalLugares"
           >
-            Lugares
+            Añadir/Modificar Lugar
           </button>
           <!-- Modal para Lugares -->
           <div class="modal" id="modalLugares" tabindex="-1">
@@ -163,59 +114,27 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3>Añadir/Modificar Lugar</h3>
-                  <button
-                    type="button"
-                    class="btn btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form id="addLugarForm">
                     <div class="mb-3">
-                      <label for="nombreLugar" class="form-label"
-                        >Nombre del Lugar:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nombreLugar"
-                        required
-                      />
+                      <label for="nombreLugar" class="form-label">Nombre del Lugar:</label>
+                      <input type="text" class="form-control" id="nombreLugar" required />
                     </div>
                     <div class="mb-3">
-                      <label for="descripcionLugar" class="form-label"
-                        >Dirección del Lugar:</label
-                      >
-                      <textarea
-                        class="form-control"
-                        id="descripcionLugar"
-                        rows="3"
-                        required
-                      ></textarea>
+                      <label for="descripcionLugar" class="form-label">Dirección del Lugar:</label>
+                      <textarea class="form-control" id="descripcionLugar" rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
-                      <label for="imagenLugar" class="form-label"
-                        >Imagen del Lugar:</label
-                      >
-                      <input
-                        type="file"
-                        class="form-control"
-                        id="imagenLugar"
-                        required
-                      />
+                      <label for="imagenLugar" class="form-label">Imagen del Lugar:</label>
+                      <input type="file" class="form-control" id="imagenLugar" required />
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancelar
-                  </button>
-                  <button type="button" class="btn btn-primary">Añadir</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="submitLugarBtn">Añadir</button>
                 </div>
               </div>
             </div>
@@ -233,7 +152,7 @@
             data-bs-toggle="modal"
             data-bs-target="#modalPersonal"
           >
-            Personal
+            Añadir/Modificar Personal
           </button>
           <!-- Modal para Personal -->
           <div class="modal" id="modalPersonal" tabindex="-1">
@@ -241,59 +160,27 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3>Añadir/Modificar Información de Personal</h3>
-                  <button
-                    type="button"
-                    class="btn btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
+                  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form id="addPersonalForm">
                     <div class="mb-3">
-                      <label for="nombrePersona" class="form-label"
-                        >Nombre y apellidos de la Persona:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nombrePersona"
-                        required
-                      />
+                      <label for="nombrePersona" class="form-label">Nombre y apellidos de la Persona:</label>
+                      <input type="text" class="form-control" id="nombrePersona" required />
                     </div>
                     <div class="mb-3">
-                      <label for="cargoPersona" class="form-label"
-                        >Cargo de la Persona:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="cargoPersona"
-                        required
-                      />
+                      <label for="cargoPersona" class="form-label">Cargo de la Persona:</label>
+                      <input type="text" class="form-control" id="cargoPersona" required />
                     </div>
                     <div class="mb-3">
-                      <label for="imagenLugar" class="form-label"
-                        >Imagen de la persona:</label
-                      >
-                      <input
-                        type="file"
-                        class="form-control"
-                        id="imagenPersonal"
-                        required
-                      />
+                      <label for="imagenPersona" class="form-label">Imagen de la persona:</label>
+                      <input type="file" class="form-control" id="imagenPersonal" required />
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Cancelar
-                  </button>
-                  <button type="button" class="btn btn-primary">Añadir</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="submitPersonalBtn">Añadir</button>
                 </div>
               </div>
             </div>
@@ -303,10 +190,7 @@
     </div>
 
     <!-- Pie de página -->
-    <footer
-      class="bg-white text-dark text-center py-3"
-      style="position: fixed; bottom: 0; width: 100%"
-    >
+    <footer class="bg-white text-dark text-center py-3" style="position: fixed; bottom: 0; width: 100%">
       <div class="container">
         <p>&copy; 2024 ARMAVE S.A. Todos los derechos reservados.</p>
       </div>
@@ -315,5 +199,22 @@
     <!-- Scripts de Bootstrap y jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script>
+      // Mostrar los formularios solo cuando los campos están completos
+      document.getElementById("submitServicioBtn").addEventListener("click", function() {
+        alert('Servicio añadido o modificado');
+        // Aquí iría la lógica para almacenar el servicio
+      });
+
+      document.getElementById("submitLugarBtn").addEventListener("click", function() {
+        alert('Lugar añadido o modificado');
+        // Aquí iría la lógica para almacenar el lugar
+      });
+
+      document.getElementById("submitPersonalBtn").addEventListener("click", function() {
+        alert('Personal añadido o modificado');
+        // Aquí iría la lógica para almacenar el personal
+      });
+    </script>
   </body>
 </html>
