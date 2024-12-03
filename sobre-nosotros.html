@@ -32,6 +32,13 @@
                   <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
                   <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
                   <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
+                  <!-- Carrito -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="carritoLink" data-bs-toggle="modal" data-bs-target="#carritoModal">
+                      <img src="images/carrito.svg" alt="Carrito" style="width: 1.5rem; height: 1.5rem;" /> 
+                      <span id="carritoCount" class="badge bg-danger">0</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -188,6 +195,28 @@
       </div>
   </div>
 
+  <!-- Modal del carrito -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <h6>Artículos en tu carrito:</h6>
+          <ul id="listaCarrito" class="list-group">
+            <!-- Aquí se agregarán los artículos dinámicamente -->
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="finalizarCompra">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!-- Pie de página -->
     <footer class="bg-white text-dark text-center py-3">
       <div class="container">
@@ -265,5 +294,78 @@
             });
         });
         </script>
+        <!-- Script para actualizar el carrito -->
+        <script>
+          // Función para agregar artículos al carrito
+          function agregarAlCarrito(nombre, servicio, presupuesto) {
+            // Obtener carrito desde localStorage, o crear uno nuevo si no existe
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            // Verificar si el artículo ya existe en el carrito
+            let articulo = carrito.find(item => item.nombre === nombre && item.servicio === servicio);
+            if (articulo) {
+              // Si el artículo ya existe, solo actualizamos el presupuesto (si es necesario)
+              articulo.presupuesto = presupuesto; // Si quieres actualizar el presupuesto en lugar de agregar más cantidad
+            } else {
+              // Si no existe, lo agregamos con los nuevos detalles
+              carrito.push({ nombre, servicio, presupuesto });
+            }
+            
+            // Guardamos el carrito actualizado en localStorage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            
+            // Actualizamos el contador del carrito en la barra de navegación
+            actualizarContadorCarrito();
+          }
+        
+          // Función para actualizar el contador en la barra de navegación
+          function actualizarContadorCarrito() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const contador = document.getElementById('carritoCount');
+            contador.textContent = carrito.length;
+          }
+        
+          // Función para eliminar un artículo del carrito
+          function eliminarArticulo(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1); // Eliminar el artículo por su índice
+            localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar el carrito actualizado
+            mostrarCarrito(); // Volver a cargar los artículos del carrito en el modal
+          }
+        
+          // Función para mostrar los artículos en el modal del carrito
+          function mostrarCarrito() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const listaCarrito = document.getElementById('listaCarrito');
+            listaCarrito.innerHTML = ''; // Limpiamos la lista
+            
+            if (carrito.length === 0) {
+              listaCarrito.innerHTML = '<li class="list-group-item">Tu carrito está vacío.</li>';
+            } else {
+              carrito.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = `
+                  <strong>Servicio:</strong> ${item.nombre}<br>
+                  <strong>Presupuesto:</strong> ${item.presupuesto} €
+                  <button class="btn btn-danger btn-sm float-end" onclick="eliminarArticulo(${index})">
+                  <img src="images/papelera.svg" alt="Eliminar" width="20" height="20"/>
+                  </button>
+                `;
+                listaCarrito.appendChild(li);
+              });
+            }
+          }
+        
+          // Cuando se hace clic en el carrito, mostrar los artículos en el modal
+          document.getElementById('carritoLink').addEventListener('click', function () {
+            mostrarCarrito();
+          });
+        
+          // Al cargar la página, actualizar el contador del carrito
+          window.onload = function () {
+            actualizarContadorCarrito();
+          };
+        </script>  
   </body>
 </html>
