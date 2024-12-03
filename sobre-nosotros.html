@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" href="images/logo.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body style="background-color: #9adac8">
     <!-- Cabecera -->
@@ -25,12 +26,31 @@
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                  <li class="nav-item"><a class="nav-link active" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                  <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
                   <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
                   <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
                   <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
+                  <?php
+                  // Inicia sesión si aún no se ha iniciado
+                  if (session_status() === PHP_SESSION_NONE) {
+                      session_start();
+                  }
+              
+                  // Verificar si el usuario ha iniciado sesión
+                  if (isset($_SESSION['username']) && !empty($_SESSION['username'])) { ?>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?= htmlspecialchars($_SESSION['username']); ?>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="php/logout.php">Cerrar Sesión</a></li>
+                      </ul>
+                    </li>
+                  <?php } else { ?>
+                    <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
+                  <?php } ?>
                 </ul>
               </div>
             </nav>
@@ -103,7 +123,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <form id="loginForm" action="login.php" method="POST">
+            <form id="loginForm" action="php/login.php" method="POST">
               <div class="mb-3">
                 <label for="username">Usuario</label>
                 <input type="text" class="form-control" id="username" name="username" required />
@@ -159,63 +179,41 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
-      // Validación de formulario de inicio de sesión
-      document.getElementById("loginForm").addEventListener("submit", function (event) {
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
-        if (!username || !password) {
-          event.preventDefault();
-          alert("Por favor, complete todos los campos.");
-        }
+      document.getElementById("loginForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Evita el envío del formulario tradicional
+      
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+      
+          if (!username || !password) {
+              alert("Por favor, complete todos los campos.");
+              return;
+          }
+      
+          // Enviar los datos a través de AJAX
+          const formData = new FormData();
+          formData.append('username', username);
+          formData.append('password', password);
+      
+          fetch('php/login.php', {
+              method: 'POST',
+              body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.status === 'success') {
+                  // Redirigir según el mensaje recibido (la URL de redirección)
+                  window.location.href = data.message;
+              } else {
+                  // Mostrar mensaje de error
+                  alert(data.message);
+              }
+          })
+          .catch(error => {
+              console.error('Error al procesar la solicitud:', error);
+              alert('Hubo un error al procesar la solicitud.');
+          });
       });
-      document.addEventListener('DOMContentLoaded', function() {
-    const registerForm = document.getElementById('registerForm');
-    const nameInput = document.getElementById('registerName');
-    const emailInput = document.getElementById('registerEmail');
-    const passwordInput = document.getElementById('registerPassword');
-
-    // Verifica si ya hay un usuario registrado en localStorage
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-      // Si ya hay un usuario registrado, mostrarlo en la página
-      alert(`Bienvenido de nuevo, ${userName}!`);
-    }
-
-    // Agrega el evento de submit al formulario de registro
-    registerForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita que se envíe el formulario por defecto
-
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-      const password = passwordInput.value.trim();
-
-      // Validación de los campos
-      if (!name || !email || !password) {
-        alert('Por favor, completa todos los campos.');
-        return;
-      }
-
-      // Validación de correo electrónico
-      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailPattern.test(email)) {
-        alert('Por favor, ingresa un correo electrónico válido.');
-        return;
-      }
-
-      // Validación de la contraseña
-      if (password.length < 6) {
-        alert('La contraseña debe tener al menos 6 caracteres.');
-        return;
-      }
-
-      // Si la validación pasa, guardamos el nombre en localStorage
-      localStorage.setItem('userName', name);
-
-      // Mostrar mensaje de éxito y recargar la página
-      alert(`¡Registro exitoso! Bienvenido, ${name}.`);
-      window.location.reload(); // Recarga la página para mostrar el nombre del usuario registrado
-    });
-  });
-    </script>
+      </script>      
   </body>
 </html>
