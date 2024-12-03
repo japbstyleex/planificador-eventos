@@ -164,7 +164,7 @@
           const formData = $(this).serialize(); // Recoger los datos del formulario
 
           $.ajax({
-            url: '/procesar_pago', // URL para procesar el pago
+            url: '/php/procesar_pago.php', // URL para procesar el pago
             method: 'POST',
             data: formData,
             dataType: 'json',
