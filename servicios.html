@@ -159,9 +159,9 @@
             </div>
           </div>
 
-      
+          <!-- Tarjeta de Bautizo -->
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#bautizoModal" style="cursor: pointer;">
               <img src="images/bautizo.jpg" class="card-img-top" alt="Imagen Bautizo" />
               <div class="card-body text-center">
                 <h5 class="card-title">Bautizo</h5>
@@ -171,9 +171,95 @@
               </div>
             </div>
           </div>
-      
+
+          <!-- Modal Bautizo -->
+          <div class="modal fade" id="bautizoModal" tabindex="-1" aria-labelledby="bautizoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="bautizoModalLabel">Formulario de Bautizo</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="bautizoForm">
+                    <!-- Selección de catering -->
+                    <div class="mb-3">
+                      <label for="cateringBautizo" class="form-label">¿Deseas contratar catering?</label>
+                      <select class="form-select" id="cateringBautizo" name="cateringBautizo" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de localización -->
+                    <div class="mb-3">
+                      <label for="localizacionBautizo" class="form-label">Selecciona una localización:</label>
+                      <select class="form-select" id="localizacionBautizo" name="localizacionBautizo" required>
+                        <option value="">Seleccionar</option>
+                        <option value="lugar1">Lugar 1</option>
+                        <option value="lugar2">Lugar 2</option>
+                        <option value="lugar3">Lugar 3</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de camareros -->
+                    <div class="mb-3">
+                      <label for="camarerosBautizo" class="form-label">¿Deseas contratar camareros?</label>
+                      <select class="form-select" id="camarerosBautizo" name="camarerosBautizo" required onchange="toggleCantidadCamareros('cantidadCamarerosContainerBautizo', 'camarerosBautizo')">
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Campo adicional para cantidad de camareros -->
+                    <div class="mb-3" id="cantidadCamarerosContainerBautizo" style="display: none;">
+                      <label for="cantidadCamarerosBautizo" class="form-label">Cantidad de camareros</label>
+                      <input type="number" class="form-control" id="cantidadCamarerosBautizo" name="cantidadCamarerosBautizo" min="1" placeholder="Introduce el número de camareros" />
+                    </div>
+
+                    <!-- Selección de decoración -->
+                    <div class="mb-3">
+                      <label for="decoracionBautizo" class="form-label">¿Deseas contratar decoración?</label>
+                      <select class="form-select" id="decoracionBautizo" name="decoracionBautizo" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de fotógrafos -->
+                    <div class="mb-3">
+                      <label for="fotografos" class="form-label">¿Deseas contratar fotógrafos?</label>
+                      <select class="form-select" id="fotografos" name="fotografos" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de videógrafos -->
+                    <div class="mb-3">
+                      <label for="videografos" class="form-label">¿Deseas contratar videógrafos?</label>
+                      <select class="form-select" id="videografos" name="videografos" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Botón de enviar -->
+                    <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Bautizo', 1)">Agregar al carrito</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta de Comunión -->
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#comunionModal" style="cursor: pointer;">
               <img src="images/comunion.jpg" class="card-img-top" alt="Imagen Comunión" />
               <div class="card-body text-center">
                 <h5 class="card-title">Comunión</h5>
@@ -183,7 +269,91 @@
               </div>
             </div>
           </div>
-        </div>
+
+          <!-- Modal Comunión -->
+          <div class="modal fade" id="comunionModal" tabindex="-1" aria-labelledby="comunionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="comunionModalLabel">Formulario de Comunión</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="comunionForm">
+                    <!-- Selección de catering -->
+                    <div class="mb-3">
+                      <label for="cateringComunion" class="form-label">¿Deseas contratar catering?</label>
+                      <select class="form-select" id="cateringComunion" name="cateringComunion" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de localización -->
+                    <div class="mb-3">
+                      <label for="localizacionComunion" class="form-label">Selecciona una localización:</label>
+                      <select class="form-select" id="localizacionComunion" name="localizacionComunion" required>
+                        <option value="">Seleccionar</option>
+                        <option value="lugar1">Lugar 1</option>
+                        <option value="lugar2">Lugar 2</option>
+                        <option value="lugar3">Lugar 3</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de camareros -->
+                    <div class="mb-3">
+                      <label for="camarerosComunion" class="form-label">¿Deseas contratar camareros?</label>
+                      <select class="form-select" id="camarerosComunion" name="camarerosComunion" required onchange="toggleCantidadCamareros('cantidadCamarerosContainerComunion', 'camarerosComunion')">
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Campo adicional para cantidad de camareros -->
+                    <div class="mb-3" id="cantidadCamarerosContainerComunion" style="display: none;">
+                      <label for="cantidadCamarerosComunion" class="form-label">Cantidad de camareros</label>
+                      <input type="number" class="form-control" id="cantidadCamarerosComunion" name="cantidadCamarerosComunion" min="1" placeholder="Introduce el número de camareros" />
+                    </div>
+
+                    <!-- Selección de animación -->
+                    <div class="mb-3">
+                      <label for="animacionComunion" class="form-label">¿Deseas contratar animación?</label>
+                      <select class="form-select" id="animacionComunion" name="animacionComunion" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de fotógrafos -->
+                    <div class="mb-3">
+                      <label for="fotografos" class="form-label">¿Deseas contratar fotógrafos?</label>
+                      <select class="form-select" id="fotografos" name="fotografos" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Selección de videógrafos -->
+                    <div class="mb-3">
+                      <label for="videografos" class="form-label">¿Deseas contratar videógrafos?</label>
+                      <select class="form-select" id="videografos" name="videografos" required>
+                        <option value="">Seleccionar</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <!-- Botón de enviar -->
+                    <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Comunión', 1)">Agregar al carrito</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
       
         <div class="row g-4 mt-4">
           <!-- Tarjeta de MICE -->
@@ -242,7 +412,7 @@
 
           <!-- Confirmar Selección -->
           <div class="text-center mt-4">
-            <button onclick="agregarAlCarrito('Nombre del artículo', 'Servicio seleccionado', 100)">Agregar al carrito</button>
+            <button class="btn btn-primary" onclick="agregarAlCarrito('Nombre del artículo', 'Servicio seleccionado', 100)">Agregar al carrito</button>
           </div>
 
         </div>
@@ -408,15 +578,15 @@
         </script>
         <!-- Script para mostrar/ocultar el campo -->
         <script>
-          function toggleCantidadCamareros() {
-            const camarerosSelect = document.getElementById("camareros");
-            const cantidadContainer = document.getElementById("cantidadCamarerosContainer");
+          function toggleCantidadCamareros(containerId, selectId) {
+            const camarerosSelect = document.getElementById(selectId);
+            const cantidadContainer = document.getElementById(containerId);
 
             if (camarerosSelect.value === "si") {
               cantidadContainer.style.display = "block"; // Muestra el campo si selecciona "Sí"
             } else {
               cantidadContainer.style.display = "none"; // Oculta el campo si selecciona "No"
-              document.getElementById("cantidadCamareros").value = ""; // Limpia el valor del campo
+              document.getElementById(containerId.replace('Container', '')).value = ""; // Limpia el valor del campo
             }
           }
         </script>
@@ -486,6 +656,17 @@
           // Cuando se hace clic en el carrito, mostrar los artículos en el modal
           document.getElementById('carritoLink').addEventListener('click', function () {
             mostrarCarrito();
+          });
+
+          // Función para redirigir a la página de pago si el carrito tiene artículos
+          document.getElementById('finalizarCompra').addEventListener('click', function () {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            if (carrito.length > 0) {
+              window.location.href = 'pago.html'; // Redirige a la página de pago
+            } else {
+              alert('Tu carrito está vacío. No puedes finalizar la compra.');
+            }
           });
         
           // Al cargar la página, actualizar el contador del carrito

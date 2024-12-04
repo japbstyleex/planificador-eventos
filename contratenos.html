@@ -407,6 +407,17 @@
           document.getElementById('carritoLink').addEventListener('click', function () {
             mostrarCarrito();
           });
+          
+          // Función para redirigir a la página de pago si el carrito tiene artículos
+          document.getElementById('finalizarCompra').addEventListener('click', function () {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            
+            if (carrito.length > 0) {
+              window.location.href = 'pago.html'; // Redirige a la página de pago
+            } else {
+              alert('Tu carrito está vacío. No puedes finalizar la compra.');
+            }
+          });
         
           // Al cargar la página, actualizar el contador del carrito
           window.onload = function () {
