@@ -44,22 +44,58 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                  <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                  <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
-                  <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Iniciar Sesión</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#registerModal" data-bs-toggle="modal">Registrarse</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sobre-nosotros.html"
+                      >Sobre Nosotros</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="servicios.html">Servicios</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contratenos.html">Contrátenos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="ayuda.html">Ayuda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#loginModal"
+                      data-bs-toggle="modal"
+                      >Iniciar Sesión</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link"
+                      href="#registerModal"
+                      data-bs-toggle="modal"
+                      >Registrarse</a
+                    >
+                  </li>
                   <!-- Carrito -->
                   <li class="nav-item">
-                    <a class="nav-link" href="#" id="carritoLink" data-bs-toggle="modal" data-bs-target="#carritoModal">
-                      <img src="images/carrito.svg" alt="Carrito" style="width: 1.5rem; height: 1.5rem;" /> 
+                    <a
+                      class="nav-link"
+                      href="#"
+                      id="carritoLink"
+                      data-bs-toggle="modal"
+                      data-bs-target="#carritoModal"
+                    >
+                      <img
+                        src="images/carrito.svg"
+                        alt="Carrito"
+                        style="width: 1.5rem; height: 1.5rem"
+                      />
                       <span id="carritoCount" class="badge bg-danger">0</span>
                     </a>
                   </li>
                 </ul>
-              </div>  
+              </div>
             </nav>
           </div>
         </div>
@@ -73,52 +109,103 @@
         <div class="row g-4">
           <!-- Tarjeta de Bodas -->
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#bodaModal" style="cursor: pointer;">
-              <img src="images/boda.jpg" class="card-img-top" alt="Imagen Bodas" />
+            <div
+              class="card h-100"
+              data-bs-toggle="modal"
+              data-bs-target="#bodaModal"
+              style="cursor: pointer"
+            >
+              <img
+                src="images/boda.jpg"
+                class="card-img-top"
+                alt="Imagen Bodas"
+              />
               <div class="card-body text-center">
                 <h5 class="card-title">Bodas</h5>
                 <p class="card-text">
-                  Planificación y coordinación completa para que disfrutes al máximo de este día especial.
+                  Planificación y coordinación completa para que disfrutes al
+                  máximo de este día especial.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" id="bodaModal" tabindex="-1" aria-labelledby="bodaModalLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="bodaModal"
+            tabindex="-1"
+            aria-labelledby="bodaModalLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="bodaModalLabel">Formulario de Bodas</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="bodaModalLabel">
+                    Formulario de Bodas
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form id="bodaForm">
                     <!-- Selección de catering -->
                     <div class="mb-3">
-                      <label for="catering" class="form-label">¿Deseas contratar catering?</label>
-                      <select class="form-select" id="catering" name="catering" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="catering" class="form-label"
+                        >¿Deseas contratar catering?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="catering"
+                        name="catering"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de localización -->
                     <div class="mb-3">
-                      <label for="localizacion" class="form-label">Selecciona una localización:</label>
-                      <select class="form-select" id="localizacion" name="localizacion" required>
+                      <label for="localizacion" class="form-label"
+                        >Selecciona una localización:</label
+                      >
+                      <select
+                        class="form-select"
+                        id="localizacion"
+                        name="localizacion"
+                        required
+                      >
                         <option value="">Seleccionar</option>
-                        <option value="lugar1">Lugar 1</option>
-                        <option value="lugar2">Lugar 2</option>
-                        <option value="lugar3">Lugar 3</option>
+                        <option value="lugar1" data-cost="500">
+                          Metropol Parasol
+                        </option>
+                        <option value="lugar2" data-cost="700">
+                          Villa Luisa
+                        </option>
+                        <option value="lugar3" data-cost="1000">
+                          Hotel Alfonso XIII
+                        </option>
                       </select>
                     </div>
 
                     <!-- Selección de camareros -->
                     <div class="mb-3">
-                      <label for="camareros" class="form-label">¿Deseas contratar camareros?</label>
-                      <select class="form-select" id="camareros" name="camareros" required onchange="toggleCantidadCamareros()">
+                      <label for="camarerosBoda" class="form-label"
+                        >¿Deseas contratar camareros?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="camarerosBoda"
+                        name="camarerosBoda"
+                        required
+                        onchange="toggleCantidadCamareros('cantidadCamarerosContainerBoda', 'camarerosBoda')"
+                      >
                         <option value="">Seleccionar</option>
                         <option value="si">Sí</option>
                         <option value="no">No</option>
@@ -126,33 +213,68 @@
                     </div>
 
                     <!-- Campo adicional para cantidad de camareros -->
-                    <div class="mb-3" id="cantidadCamarerosContainer" style="display: none;">
-                      <label for="cantidadCamareros" class="form-label">Cantidad de camareros</label>
-                      <input type="number" class="form-control" id="cantidadCamareros" name="cantidadCamareros" min="1" placeholder="Introduce el número de camareros" />
+                    <div
+                      class="mb-3"
+                      id="cantidadCamarerosContainerBoda"
+                      style="display: none"
+                    >
+                      <label for="cantidadCamarerosBoda" class="form-label"
+                        >Cantidad de camareros</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="cantidadCamarerosBoda"
+                        name="cantidadCamarerosBoda"
+                        min="1"
+                        value="0"
+                        data-cost-per-unit="50"
+                        onchange="calcularPresupuesto('bodaForm')"
+                        placeholder="Introduce el número de camareros"
+                      />
                     </div>
 
                     <!-- Selección de fotógrafos -->
                     <div class="mb-3">
-                      <label for="fotografos" class="form-label">¿Deseas contratar fotógrafos?</label>
-                      <select class="form-select" id="fotografos" name="fotografos" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="fotografos" class="form-label"
+                        >¿Deseas contratar fotógrafos?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="fotografos"
+                        name="fotografos"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de videógrafos -->
                     <div class="mb-3">
-                      <label for="videografos" class="form-label">¿Deseas contratar videógrafos?</label>
-                      <select class="form-select" id="videografos" name="videografos" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="videografos" class="form-label"
+                        >¿Deseas contratar videógrafos?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="videografos"
+                        name="videografos"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Botón de enviar -->
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('Bodas', 1)">Agregar al carrito</button>
+                    <button
+                      class="btn btn-primary"
+                      onclick="agregarServicioConPresupuesto('Bodas', 'bodaForm')"
+                    >
+                      Agregar al carrito
+                    </button>
                   </form>
                 </div>
               </div>
@@ -161,52 +283,103 @@
 
           <!-- Tarjeta de Bautizo -->
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#bautizoModal" style="cursor: pointer;">
-              <img src="images/bautizo.jpg" class="card-img-top" alt="Imagen Bautizo" />
+            <div
+              class="card h-100"
+              data-bs-toggle="modal"
+              data-bs-target="#bautizoModal"
+              style="cursor: pointer"
+            >
+              <img
+                src="images/bautizo.jpg"
+                class="card-img-top"
+                alt="Imagen Bautizo"
+              />
               <div class="card-body text-center">
                 <h5 class="card-title">Bautizo</h5>
                 <p class="card-text">
-                  Celebración del bautizo con decoración y organización completa.
+                  Celebración del bautizo con decoración y organización
+                  completa.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Modal Bautizo -->
-          <div class="modal fade" id="bautizoModal" tabindex="-1" aria-labelledby="bautizoModalLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="bautizoModal"
+            tabindex="-1"
+            aria-labelledby="bautizoModalLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="bautizoModalLabel">Formulario de Bautizo</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="bautizoModalLabel">
+                    Formulario de Bautizo
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form id="bautizoForm">
                     <!-- Selección de catering -->
                     <div class="mb-3">
-                      <label for="cateringBautizo" class="form-label">¿Deseas contratar catering?</label>
-                      <select class="form-select" id="cateringBautizo" name="cateringBautizo" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="cateringBautizo" class="form-label"
+                        >¿Deseas contratar catering?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="cateringBautizo"
+                        name="cateringBautizo"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de localización -->
                     <div class="mb-3">
-                      <label for="localizacionBautizo" class="form-label">Selecciona una localización:</label>
-                      <select class="form-select" id="localizacionBautizo" name="localizacionBautizo" required>
-                        <option value="">Seleccionar</option>
-                        <option value="lugar1">Lugar 1</option>
-                        <option value="lugar2">Lugar 2</option>
-                        <option value="lugar3">Lugar 3</option>
+                      <label for="localizacionBautizo" class="form-label"
+                        >Selecciona una localización:</label
+                      >
+                      <select
+                        class="form-select"
+                        id="localizacionBautizo"
+                        name="localizacionBautizo"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="lugar1" data-cost="500">
+                          Restaurante Rio Grande
+                        </option>
+                        <option value="lugar2" data-cost="700">
+                          Hacienda Benazuza
+                        </option>
+                        <option value="lugar3" data-cost="1000">
+                          Abades Triana
+                        </option>
                       </select>
                     </div>
 
                     <!-- Selección de camareros -->
                     <div class="mb-3">
-                      <label for="camarerosBautizo" class="form-label">¿Deseas contratar camareros?</label>
-                      <select class="form-select" id="camarerosBautizo" name="camarerosBautizo" required onchange="toggleCantidadCamareros('cantidadCamarerosContainerBautizo', 'camarerosBautizo')">
+                      <label for="camarerosBautizo" class="form-label"
+                        >¿Deseas contratar camareros?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="camarerosBautizo"
+                        name="camarerosBautizo"
+                        required
+                        onchange="toggleCantidadCamareros('cantidadCamarerosContainerBautizo', 'camarerosBautizo')"
+                      >
                         <option value="">Seleccionar</option>
                         <option value="si">Sí</option>
                         <option value="no">No</option>
@@ -214,43 +387,86 @@
                     </div>
 
                     <!-- Campo adicional para cantidad de camareros -->
-                    <div class="mb-3" id="cantidadCamarerosContainerBautizo" style="display: none;">
-                      <label for="cantidadCamarerosBautizo" class="form-label">Cantidad de camareros</label>
-                      <input type="number" class="form-control" id="cantidadCamarerosBautizo" name="cantidadCamarerosBautizo" min="1" placeholder="Introduce el número de camareros" />
+                    <div
+                      class="mb-3"
+                      id="cantidadCamarerosContainerBautizo"
+                      style="display: none"
+                    >
+                      <label for="cantidadCamarerosBautizo" class="form-label"
+                        >Cantidad de camareros</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="cantidadCamarerosBautizo"
+                        name="cantidadCamarerosBautizo"
+                        min="1"
+                        value="0"
+                        data-cost-per-unit="50"
+                        onchange="calcularPresupuesto('bautizoForm')"
+                        placeholder="Introduce el número de camareros"
+                      />
                     </div>
 
                     <!-- Selección de decoración -->
                     <div class="mb-3">
-                      <label for="decoracionBautizo" class="form-label">¿Deseas contratar decoración?</label>
-                      <select class="form-select" id="decoracionBautizo" name="decoracionBautizo" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="decoracionBautizo" class="form-label"
+                        >¿Deseas contratar decoración?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="decoracionBautizo"
+                        name="decoracionBautizo"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de fotógrafos -->
                     <div class="mb-3">
-                      <label for="fotografos" class="form-label">¿Deseas contratar fotógrafos?</label>
-                      <select class="form-select" id="fotografos" name="fotografos" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="fotografos" class="form-label"
+                        >¿Deseas contratar fotógrafos?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="fotografos"
+                        name="fotografos"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de videógrafos -->
                     <div class="mb-3">
-                      <label for="videografos" class="form-label">¿Deseas contratar videógrafos?</label>
-                      <select class="form-select" id="videografos" name="videografos" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="videografos" class="form-label"
+                        >¿Deseas contratar videógrafos?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="videografos"
+                        name="videografos"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Botón de enviar -->
-                    <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Bautizo', 1)">Agregar al carrito</button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onclick="agregarServicioConPresupuesto('Bautizo', 'bautizoForm')"
+                    >
+                      Agregar al carrito
+                    </button>
                   </form>
                 </div>
               </div>
@@ -259,52 +475,103 @@
 
           <!-- Tarjeta de Comunión -->
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#comunionModal" style="cursor: pointer;">
-              <img src="images/comunion.jpg" class="card-img-top" alt="Imagen Comunión" />
+            <div
+              class="card h-100"
+              data-bs-toggle="modal"
+              data-bs-target="#comunionModal"
+              style="cursor: pointer"
+            >
+              <img
+                src="images/comunion.jpg"
+                class="card-img-top"
+                alt="Imagen Comunión"
+              />
               <div class="card-body text-center">
                 <h5 class="card-title">Comunión</h5>
                 <p class="card-text">
-                  Organización de comuniones especiales y memorables para ti y tus seres queridos.
+                  Organización de comuniones especiales y memorables para ti y
+                  tus seres queridos.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Modal Comunión -->
-          <div class="modal fade" id="comunionModal" tabindex="-1" aria-labelledby="comunionModalLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="comunionModal"
+            tabindex="-1"
+            aria-labelledby="comunionModalLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="comunionModalLabel">Formulario de Comunión</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <h5 class="modal-title" id="comunionModalLabel">
+                    Formulario de Comunión
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form id="comunionForm">
                     <!-- Selección de catering -->
                     <div class="mb-3">
-                      <label for="cateringComunion" class="form-label">¿Deseas contratar catering?</label>
-                      <select class="form-select" id="cateringComunion" name="cateringComunion" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="cateringComunion" class="form-label"
+                        >¿Deseas contratar catering?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="cateringComunion"
+                        name="cateringComunion"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de localización -->
                     <div class="mb-3">
-                      <label for="localizacionComunion" class="form-label">Selecciona una localización:</label>
-                      <select class="form-select" id="localizacionComunion" name="localizacionComunion" required>
+                      <label for="localizacionComunion" class="form-label"
+                        >Selecciona una localización:</label
+                      >
+                      <select
+                        class="form-select"
+                        id="localizacionComunion"
+                        name="localizacionComunion"
+                        required
+                      >
                         <option value="">Seleccionar</option>
-                        <option value="lugar1">Lugar 1</option>
-                        <option value="lugar2">Lugar 2</option>
-                        <option value="lugar3">Lugar 3</option>
+                        <option value="lugar1" data-cost="500">
+                          Hacienda Santa Ana
+                        </option>
+                        <option value="lugar2" data-cost="700">
+                          Espacio Verde Oliva
+                        </option>
+                        <option value="lugar3" data-cost="1000">
+                          Hotel Hilton Garden
+                        </option>
                       </select>
                     </div>
 
                     <!-- Selección de camareros -->
                     <div class="mb-3">
-                      <label for="camarerosComunion" class="form-label">¿Deseas contratar camareros?</label>
-                      <select class="form-select" id="camarerosComunion" name="camarerosComunion" required onchange="toggleCantidadCamareros('cantidadCamarerosContainerComunion', 'camarerosComunion')">
+                      <label for="camarerosComunion" class="form-label"
+                        >¿Deseas contratar camareros?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="camarerosComunion"
+                        name="camarerosComunion"
+                        required
+                        onchange="toggleCantidadCamareros('cantidadCamarerosContainerComunion', 'camarerosComunion')"
+                      >
                         <option value="">Seleccionar</option>
                         <option value="si">Sí</option>
                         <option value="no">No</option>
@@ -312,133 +579,314 @@
                     </div>
 
                     <!-- Campo adicional para cantidad de camareros -->
-                    <div class="mb-3" id="cantidadCamarerosContainerComunion" style="display: none;">
-                      <label for="cantidadCamarerosComunion" class="form-label">Cantidad de camareros</label>
-                      <input type="number" class="form-control" id="cantidadCamarerosComunion" name="cantidadCamarerosComunion" min="1" placeholder="Introduce el número de camareros" />
+                    <div
+                      class="mb-3"
+                      id="cantidadCamarerosContainerComunion"
+                      style="display: none"
+                    >
+                      <label for="cantidadCamarerosComunion" class="form-label"
+                        >Cantidad de camareros</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="cantidadCamarerosComunion"
+                        name="cantidadCamarerosComunion"
+                        min="1"
+                        value="0"
+                        dara-cost-per-unit="50"
+                        onchange="calcularPresupuesto('comunionForm')"
+                        placeholder="Introduce el número de camareros"
+                      />
                     </div>
 
                     <!-- Selección de animación -->
                     <div class="mb-3">
-                      <label for="animacionComunion" class="form-label">¿Deseas contratar animación?</label>
-                      <select class="form-select" id="animacionComunion" name="animacionComunion" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="animacionComunion" class="form-label"
+                        >¿Deseas contratar animación?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="animacionComunion"
+                        name="animacionComunion"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de fotógrafos -->
                     <div class="mb-3">
-                      <label for="fotografos" class="form-label">¿Deseas contratar fotógrafos?</label>
-                      <select class="form-select" id="fotografos" name="fotografos" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="fotografos" class="form-label"
+                        >¿Deseas contratar fotógrafos?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="fotografos"
+                        name="fotografos"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="300">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Selección de videógrafos -->
                     <div class="mb-3">
-                      <label for="videografos" class="form-label">¿Deseas contratar videógrafos?</label>
-                      <select class="form-select" id="videografos" name="videografos" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
+                      <label for="videografos" class="form-label"
+                        >¿Deseas contratar videógrafos?</label
+                      >
+                      <select
+                        class="form-select"
+                        id="videografos"
+                        name="videografos"
+                        required
+                      >
+                        <option value="0" data-cost="0">Seleccionar</option>
+                        <option value="si" data-cost="200">Sí</option>
+                        <option value="no" data-cost="0">No</option>
                       </select>
                     </div>
 
                     <!-- Botón de enviar -->
-                    <button type="button" class="btn btn-primary" onclick="agregarAlCarrito('Comunión', 1)">Agregar al carrito</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-      
-        <div class="row g-4 mt-4">
-          <!-- Tarjeta de MICE -->
-          <div class="col-lg-6 col-md-6 mb-4">
-            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#miceModal" style="cursor: pointer;">
-              <img src="images/mice.jpg" class="card-img-top" alt="Imagen MICE" />
-              <div class="card-body text-center">
-                <h5 class="card-title">MICE</h5>
-                <p class="card-text">
-                  Gestión de reuniones, incentivos, conferencias y exposiciones con un enfoque profesional.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Modal -->
-          <div class="modal fade" id="miceModal" tabindex="-1" aria-labelledby="miceModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="miceModalLabel">Opciones de MICE</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form id="miceForm">
-                    <!-- Selección de proyector y audiovisuales -->
-                    <div class="mb-3">
-                      <label for="proyectorAudiovisuales" class="form-label">¿Deseas alquilar proyector + audiovisuales?</label>
-                      <select class="form-select" id="proyectorAudiovisuales" name="proyectorAudiovisuales" required>
-                        <option value="">Seleccionar</option>
-                        <option value="si">Sí</option>
-                        <option value="no">No</option>
-                      </select>
-                    </div>
-
-                    <!-- Botón de enviar -->
-                    <button class="btn btn-primary" onclick="agregarAlCarrito('MICE', 1)">Agregar al carrito</button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onclick="agregarServicioConPresupuesto('Comunión', 'comunionForm')"
+                    >
+                      Agregar al carrito
+                    </button>
                   </form>
                 </div>
               </div>
             </div>
           </div>
 
-      
-          <div class="col-lg-6 col-md-6 mb-4">
-            <div class="card h-100" onclick="window.location.href='contratenos.html'" style="cursor: pointer;">
-              <img src="images/eventos.jpg" class="card-img-top" alt="Imagen Eventos Personalizados" />
-              <div class="card-body text-center">
-                <h5 class="card-title">Eventos Personalizados</h5>
-                <p class="card-text">
-                  Creación de eventos únicos adaptados a tus gustos y preferencias.
-                </p>
+          <div class="row g-4 mt-4 justify-content-center">
+            <!-- Tarjeta MICE -->
+            <div class="col-lg-4 col-md-4 mb-4">
+              <div
+                class="card h-100"
+                data-bs-toggle="modal"
+                data-bs-target="#miceModal"
+              >
+                <img
+                  src="images/mice.jpg"
+                  class="card-img-top"
+                  alt="Imagen MICE"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">MICE</h5>
+                  <p class="card-text">
+                    Gestión de reuniones, incentivos, conferencias y
+                    exposiciones con un enfoque profesional.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="miceModal"
+              tabindex="-1"
+              aria-labelledby="miceModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="miceModalLabel">
+                      Opciones de MICE
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="miceForm">
+                      <!-- Selección de catering -->
+                      <div class="mb-3">
+                        <label for="cateringMICE" class="form-label"
+                          >¿Deseas contratar catering?</label
+                        >
+                        <select
+                          class="form-select"
+                          id="cateringMICE"
+                          name="cateringMICE"
+                          required
+                        >
+                          <option value="0" data-cost="0">Seleccionar</option>
+                          <option value="si" data-cost="200">Sí</option>
+                          <option value="no" data-cost="0">No</option>
+                        </select>
+                      </div>
+                      <!-- Selección de localización -->
+                      <div class="mb-3">
+                        <label for="localizacionMICE" class="form-label"
+                          >Selecciona una localización:</label
+                        >
+                        <select
+                          class="form-select"
+                          id="localizacionMICE"
+                          name="localizacionMICE"
+                          required
+                        >
+                          <option value="">Seleccionar</option>
+                          <option value="lugar1" data-cost="500">
+                            Metropol Parasol
+                          </option>
+                          <option value="lugar2" data-cost="700">
+                            Salón España
+                          </option>
+                          <option value="lugar3" data-cost="1000">
+                            Hotel Barceló Renacimiento
+                          </option>
+                        </select>
+                      </div>
+                      <!-- Selección de camareros -->
+                      <div class="mb-3">
+                        <label for="camarerosMICE" class="form-label"
+                          >¿Deseas contratar camareros?</label
+                        >
+                        <select
+                          class="form-select"
+                          id="camarerosMICE"
+                          name="camarerosMICE"
+                          required
+                          onchange="toggleCantidadCamareros('cantidadCamarerosContainerMICE', 'camarerosMICE')"
+                        >
+                          <option value="">Seleccionar</option>
+                          <option value="si">Sí</option>
+                          <option value="no">No</option>
+                        </select>
+                      </div>
+
+                      <!-- Campo adicional para cantidad de camareros -->
+                      <div
+                        class="mb-3"
+                        id="cantidadCamarerosContainerMICE"
+                        style="display: none"
+                      >
+                        <label for="cantidadCamarerosMICE" class="form-label"
+                          >Cantidad de camareros</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="cantidadCamarerosMICE"
+                          name="cantidadCamarerosMICE"
+                          min="1"
+                          value="0"
+                          dara-cost-per-unit="50"
+                          onchange="calcularPresupuesto('comunionForm')"
+                          placeholder="Introduce el número de camareros"
+                        />
+                      </div>
+                      <!-- Selección de proyector y audiovisuales -->
+                      <div class="mb-3">
+                        <label for="proyectorAudiovisuales" class="form-label"
+                          >¿Deseas alquilar proyector + audiovisuales?</label
+                        >
+                        <select
+                          class="form-select"
+                          id="proyectorAudiovisuales"
+                          name="proyectorAudiovisuales"
+                          required
+                        >
+                          <option value="0" data-cost="0">Seleccionar</option>
+                          <option value="si" data-cost="200">Sí</option>
+                          <option value="no" data-cost="0">No</option>
+                        </select>
+                      </div>
+
+                      <!-- Botón de enviar -->
+                      <button
+                        class="btn btn-primary"
+                        onclick="agregarServicioConPresupuesto('MICE', 'miceForm')"
+                      >
+                        Agregar al carrito
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta de Eventos Personalizados -->
+            <div class="col-lg-4 col-md-4 mb-4">
+              <div
+                class="card h-100"
+                onclick="window.location.href='contratenos.html'"
+              >
+                <img
+                  src="images/eventos.jpg"
+                  class="card-img-top"
+                  alt="Imagen Eventos Personalizados"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title">Eventos Personalizados</h5>
+                  <p class="card-text">
+                    Creación de eventos únicos adaptados a tus gustos y
+                    preferencias.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Confirmar Selección -->
-          <div class="text-center mt-4">
-            <button class="btn btn-primary" onclick="agregarAlCarrito('Nombre del artículo', 'Servicio seleccionado', 100)">Agregar al carrito</button>
-          </div>
-
         </div>
-      </div>  
-      
+      </div>
     </section>
 
     <!-- Modal Iniciar Sesión -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
           </div>
           <div class="modal-body">
             <form id="loginForm" action="php/login.php" method="POST">
               <div class="mb-3">
                 <label for="username">Usuario</label>
-                <input type="text" class="form-control" id="username" name="username" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" required />
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                />
               </div>
-              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              <button type="submit" class="btn btn-primary">
+                Iniciar Sesión
+              </button>
             </form>
           </div>
         </div>
@@ -446,26 +894,54 @@
     </div>
 
     <!-- Modal Registrarse -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="registerModal"
+      tabindex="-1"
+      aria-labelledby="registerModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
           </div>
           <div class="modal-body">
             <form id="registerForm">
               <div class="mb-3">
                 <label for="registerName">Nombre</label>
-                <input type="text" class="form-control" id="registerName" name="username" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerName"
+                  name="username"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="registerEmail">Correo Electrónico</label>
-                <input type="email" class="form-control" id="registerEmail" name="email" required />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="registerEmail"
+                  name="email"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="registerPassword">Contraseña</label>
-                <input type="password" class="form-control" id="registerPassword" name="password" required />
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerPassword"
+                  name="password"
+                  required
+                />
               </div>
               <button type="submit" class="btn btn-primary">Registrarse</button>
             </form>
@@ -473,29 +949,50 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-  <!-- Modal del carrito -->
-  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <h6>Artículos en tu carrito:</h6>
-          <ul id="listaCarrito" class="list-group">
-            <!-- Aquí se agregarán los artículos dinámicamente -->
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="finalizarCompra">Finalizar Compra</button>
+    <!-- Modal del carrito -->
+    <div
+      class="modal fade"
+      id="carritoModal"
+      tabindex="-1"
+      aria-labelledby="carritoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="carritoModalLabel">
+              Carrito de Compras
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h6>Artículos en tu carrito:</h6>
+            <ul id="listaCarrito" class="list-group">
+              <!-- Aquí se agregarán los artículos dinámicamente -->
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="finalizarCompra">
+              Finalizar Compra
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     <!-- Pie de página -->
     <footer
@@ -510,169 +1007,219 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.getElementById("loginForm").addEventListener("submit", function(event) {
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
           event.preventDefault(); // Evita el envío del formulario tradicional
-      
+
           const username = document.getElementById("username").value.trim();
           const password = document.getElementById("password").value.trim();
-      
+
           if (!username || !password) {
-              alert("Por favor, complete todos los campos.");
-              return;
+            alert("Por favor, complete todos los campos.");
+            return;
           }
-      
+
           // Enviar los datos a través de AJAX
           const formData = new FormData();
-          formData.append('username', username);
-          formData.append('password', password);
-      
-          fetch('php/login.php', {
-              method: 'POST',
-              body: formData
+          formData.append("username", username);
+          formData.append("password", password);
+
+          fetch("php/login.php", {
+            method: "POST",
+            body: formData,
           })
-          .then(response => response.json())
-          .then(data => {
-              if (data.status === 'success') {
-                  // Redirigir según el mensaje recibido (la URL de redirección)
-                  window.location.href = data.message;
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.status === "success") {
+                // Redirigir según el mensaje recibido (la URL de redirección)
+                window.location.href = data.message;
               } else {
-                  // Mostrar mensaje de error
-                  alert(data.message);
+                // Mostrar mensaje de error
+                alert(data.message);
               }
-          })
-          .catch(error => {
-              console.error('Error al procesar la solicitud:', error);
-              alert('Hubo un error al procesar la solicitud.');
-          });
-      });
-      </script>
-      <script>
-        $(document).ready(function() {
-            $('#registerForm').on('submit', function(e) {
-                e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
-        
-                // Obtener los datos del formulario
-                var formData = $(this).serialize();
-        
-                $.ajax({
-                    url: 'register.php', // La URL a donde se enviarán los datos
-                    type: 'POST',
-                    data: formData, // Los datos del formulario
-                    dataType: 'json', // Especificamos que esperamos un JSON como respuesta
-                    success: function(response) {
-                        // Mostrar el mensaje de respuesta
-                        $('#responseMessage').html(response.message);
-                        
-                        // Si el registro es exitoso, limpiamos el formulario y cerramos el modal
-                        if (response.status === 'success') {
-                            $('#registerForm')[0].reset();  // Limpiar los campos del formulario
-                            $('#registerModal').modal('hide'); // Cerrar el modal
-                        }
-                    },
-                    error: function() {
-                        $('#responseMessage').html('Hubo un error al procesar la solicitud.');
-                    }
-                });
+            })
+            .catch((error) => {
+              console.error("Error al procesar la solicitud:", error);
+              alert("Hubo un error al procesar la solicitud.");
             });
         });
-        </script>
-        <!-- Script para mostrar/ocultar el campo -->
-        <script>
-          function toggleCantidadCamareros(containerId, selectId) {
-            const camarerosSelect = document.getElementById(selectId);
-            const cantidadContainer = document.getElementById(containerId);
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#registerForm").on("submit", function (e) {
+          e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
 
-            if (camarerosSelect.value === "si") {
-              cantidadContainer.style.display = "block"; // Muestra el campo si selecciona "Sí"
-            } else {
-              cantidadContainer.style.display = "none"; // Oculta el campo si selecciona "No"
-              document.getElementById(containerId.replace('Container', '')).value = ""; // Limpia el valor del campo
-            }
-          }
-        </script>
-        <!-- Script para actualizar el carrito -->
-        <script>
-          // Función para agregar artículos al carrito
-          function agregarAlCarrito(nombre, servicio, presupuesto) {
-            // Obtener carrito desde localStorage, o crear uno nuevo si no existe
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            
-            // Verificar si el artículo ya existe en el carrito
-            let articulo = carrito.find(item => item.nombre === nombre && item.servicio === servicio);
-            if (articulo) {
-              // Si el artículo ya existe, solo actualizamos el presupuesto (si es necesario)
-              articulo.presupuesto = presupuesto; // Si quieres actualizar el presupuesto en lugar de agregar más cantidad
-            } else {
-              // Si no existe, lo agregamos con los nuevos detalles
-              carrito.push({ nombre, servicio, presupuesto });
-            }
-            
-            // Guardamos el carrito actualizado en localStorage
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            
-            // Actualizamos el contador del carrito en la barra de navegación
-            actualizarContadorCarrito();
-          }
-        
-          // Función para actualizar el contador en la barra de navegación
-          function actualizarContadorCarrito() {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const contador = document.getElementById('carritoCount');
-            contador.textContent = carrito.length;
-          }
-        
-          // Función para eliminar un artículo del carrito
-          function eliminarArticulo(index) {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            carrito.splice(index, 1); // Eliminar el artículo por su índice
-            localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar el carrito actualizado
-            mostrarCarrito(); // Volver a cargar los artículos del carrito en el modal
-          }
-        
-          // Función para mostrar los artículos en el modal del carrito
-          function mostrarCarrito() {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const listaCarrito = document.getElementById('listaCarrito');
-            listaCarrito.innerHTML = ''; // Limpiamos la lista
-            
-            if (carrito.length === 0) {
-              listaCarrito.innerHTML = '<li class="list-group-item">Tu carrito está vacío.</li>';
-            } else {
-              carrito.forEach((item, index) => {
-                const li = document.createElement('li');
-                li.className = 'list-group-item';
-                li.innerHTML = `
+          // Obtener los datos del formulario
+          var formData = $(this).serialize();
+
+          $.ajax({
+            url: "register.php", // La URL a donde se enviarán los datos
+            type: "POST",
+            data: formData, // Los datos del formulario
+            dataType: "json", // Especificamos que esperamos un JSON como respuesta
+            success: function (response) {
+              // Mostrar el mensaje de respuesta
+              $("#responseMessage").html(response.message);
+
+              // Si el registro es exitoso, limpiamos el formulario y cerramos el modal
+              if (response.status === "success") {
+                $("#registerForm")[0].reset(); // Limpiar los campos del formulario
+                $("#registerModal").modal("hide"); // Cerrar el modal
+              }
+            },
+            error: function () {
+              $("#responseMessage").html(
+                "Hubo un error al procesar la solicitud."
+              );
+            },
+          });
+        });
+      });
+    </script>
+    <!-- Script para mostrar/ocultar el campo -->
+    <script>
+      function toggleCantidadCamareros(containerId, selectId) {
+        const camarerosSelect = document.getElementById(selectId);
+        const cantidadContainer = document.getElementById(containerId);
+
+        if (camarerosSelect.value === "si") {
+          cantidadContainer.style.display = "block"; // Muestra el campo si selecciona "Sí"
+        } else {
+          cantidadContainer.style.display = "none"; // Oculta el campo si selecciona "No"
+          document.getElementById(containerId.replace("Container", "")).value =
+            ""; // Limpia el valor del campo
+        }
+      }
+    </script>
+    <!-- Script para actualizar el carrito -->
+    <script>
+      // Función para agregar artículos al carrito
+      function agregarAlCarrito(nombre, servicio, presupuesto) {
+        // Obtener carrito desde localStorage, o crear uno nuevo si no existe
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        // Verificar si el artículo ya existe en el carrito
+        let articulo = carrito.find(
+          (item) => item.nombre === nombre && item.servicio === servicio
+        );
+        if (articulo) {
+          // Si el artículo ya existe, solo actualizamos el presupuesto (si es necesario)
+          articulo.presupuesto = presupuesto; // Si quieres actualizar el presupuesto en lugar de agregar más cantidad
+        } else {
+          // Si no existe, lo agregamos con los nuevos detalles
+          carrito.push({ nombre, servicio, presupuesto });
+        }
+
+        // Guardamos el carrito actualizado en localStorage
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        // Actualizamos el contador del carrito en la barra de navegación
+        actualizarContadorCarrito();
+      }
+
+      // Función para actualizar el contador en la barra de navegación
+      function actualizarContadorCarrito() {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const contador = document.getElementById("carritoCount");
+        contador.textContent = carrito.length;
+      }
+
+      // Función para eliminar un artículo del carrito
+      function eliminarArticulo(index) {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        carrito.splice(index, 1); // Eliminar el artículo por su índice
+        localStorage.setItem("carrito", JSON.stringify(carrito)); // Guardar el carrito actualizado
+        mostrarCarrito(); // Volver a cargar los artículos del carrito en el modal
+      }
+
+      // Función para mostrar los artículos en el modal del carrito
+      function mostrarCarrito() {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const listaCarrito = document.getElementById("listaCarrito");
+        listaCarrito.innerHTML = ""; // Limpiamos la lista
+
+        if (carrito.length === 0) {
+          listaCarrito.innerHTML =
+            '<li class="list-group-item">Tu carrito está vacío.</li>';
+        } else {
+          carrito.forEach((item, index) => {
+            const li = document.createElement("li");
+            li.className = "list-group-item";
+            li.innerHTML = `
                   <strong>Servicio:</strong> ${item.nombre}<br>
                   <strong>Presupuesto:</strong> ${item.presupuesto} €
                   <button class="btn btn-danger btn-sm float-end" onclick="eliminarArticulo(${index})">
                   <img src="images/papelera.svg" alt="Eliminar" width="20" height="20"/>
                   </button>
                 `;
-                listaCarrito.appendChild(li);
-              });
-            }
-          }
-        
-          // Cuando se hace clic en el carrito, mostrar los artículos en el modal
-          document.getElementById('carritoLink').addEventListener('click', function () {
-            mostrarCarrito();
+            listaCarrito.appendChild(li);
           });
+        }
+      }
 
-          // Función para redirigir a la página de pago si el carrito tiene artículos
-          document.getElementById('finalizarCompra').addEventListener('click', function () {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            
-            if (carrito.length > 0) {
-              window.location.href = 'pago.html'; // Redirige a la página de pago
-            } else {
-              alert('Tu carrito está vacío. No puedes finalizar la compra.');
-            }
-          });
-        
-          // Al cargar la página, actualizar el contador del carrito
-          window.onload = function () {
-            actualizarContadorCarrito();
-          };
-        </script>
+      // Cuando se hace clic en el carrito, mostrar los artículos en el modal
+      document
+        .getElementById("carritoLink")
+        .addEventListener("click", function () {
+          mostrarCarrito();
+        });
+
+      // Función para redirigir a la página de pago si el carrito tiene artículos
+      document
+        .getElementById("finalizarCompra")
+        .addEventListener("click", function () {
+          let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+          if (carrito.length > 0) {
+            window.location.href = "pago.html"; // Redirige a la página de pago
+          } else {
+            alert("Tu carrito está vacío. No puedes finalizar la compra.");
+          }
+        });
+
+      // Al cargar la página, actualizar el contador del carrito
+      window.onload = function () {
+        actualizarContadorCarrito();
+      };
+    </script>
+    <script>
+      function calcularPresupuesto(formId) {
+        const form = document.getElementById(formId);
+        let totalPresupuesto = 0;
+
+        // Iterar sobre todos los selectores y campos relevantes
+        form.querySelectorAll("select, input").forEach((field) => {
+          if (field.tagName === "SELECT") {
+            const selectedOption = field.options[field.selectedIndex];
+            const cost = parseFloat(selectedOption.dataset.cost || 0);
+            totalPresupuesto += cost;
+          } else if (field.type === "number" && field.dataset.costPerUnit) {
+            const quantity = parseInt(field.value) || 0;
+            const costPerUnit = parseFloat(field.dataset.costPerUnit);
+            totalPresupuesto += quantity * costPerUnit;
+          }
+        });
+
+        // Mostrar el presupuesto en el formulario
+        const presupuestoElement = document.getElementById(
+          `presupuesto${formId.charAt(0).toUpperCase() + formId.slice(1)}`
+        );
+        if (presupuestoElement) {
+          presupuestoElement.textContent = totalPresupuesto;
+        }
+
+        return totalPresupuesto;
+      }
+
+      // Función para agregar un servicio con presupuesto al carrito
+      function agregarServicioConPresupuesto(servicio, formId) {
+        const presupuesto = calcularPresupuesto(formId);
+        agregarAlCarrito(servicio, "Evento personalizado", presupuesto);
+        alert(
+          `El servicio "${servicio}" se ha agregado al carrito con un presupuesto de ${presupuesto}€.`
+        );
+      }
+    </script>
   </body>
 </html>

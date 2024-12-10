@@ -6,10 +6,6 @@ $response = array('status' => '', 'message' => '');
 session_unset();
 session_destroy();
 
-$response['status'] = 'success';
-$response['message'] = 'Sesión cerrada correctamente.';
-
-// Devolver respuesta como JSON
-echo json_encode($response);
-exit;
-?>
+// Redirigir a index.html
+header("Location: /index.html");
+exit();
