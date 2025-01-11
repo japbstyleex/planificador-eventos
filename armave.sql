@@ -42,11 +42,11 @@ CREATE TABLE `carrito` (
 INSERT INTO `carrito` (`id`, `id_usuario`, `articulo`, `servicio`, `presupuesto`) VALUES
 (9, 3, 'Bautizo', 'Evento personalizado', 1400.00),
 (10, 2, 'Bautizo', 'Evento personalizado', 1950.00),
-(11, 3, 'Comunión', 'Evento personalizado', 1200.00),
+(11, 3, 'Comunion', 'Evento personalizado', 1200.00),
 (12, 3, 'MICE', 'null', 900.00),
 (13, 2, 'Bodas', 'Evento personalizado', 5450.00),
-(14, 2, 'Comunión', 'Evento personalizado', 500.00),
-(15, 1, 'Comunión', 'Evento personalizado', 1300.00);
+(14, 2, 'Comunion', 'Evento personalizado', 500.00),
+(15, 1, 'Comunion', 'Evento personalizado', 1300.00);
 
 -- --------------------------------------------------------
 
