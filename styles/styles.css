@@ -13,7 +13,7 @@ header {
 }
 
 #texto {
-  background-color: #343a40; /* Color de fondo oscuro */
+  background-color: #9adac8; /* Color de fondo oscuro */
 }
 
 #texto p {
@@ -21,11 +21,18 @@ header {
 }
 
 #banner {
-  background-size: cover;
-  background-position: center;
-  min-height: 500px;
-  display: flex;
-  align-items: flex-end;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.carousel-inner {
+  height: 100%; /* Asegura que el carrusel ocupa todo el alto del contenedor */
+}
+
+.carousel-item img {
+  width: 100%; /* Asegura que la imagen ocupa todo el ancho */
+  height: 100%; /* Asegura que la imagen ocupa todo el alto */
+  object-fit: cover; /* Recorta la imagen para cubrir todo el contenedor sin deformarse */
 }
 
 #banner h1 {
@@ -90,4 +97,10 @@ a:hover {
 
 .bg-custom {
   background-color: #9adac8;
+}
+
+.card-img-top {
+  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+  height: 200px; /* Altura fija para todas las imágenes */
+  object-fit: cover; /* Recorta la imagen para que ocupe completamente el área sin distorsión */
 }

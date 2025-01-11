@@ -33,17 +33,45 @@
             </a>
           </div>
           <div class="col-12 col-lg-10">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <nav
+              class="navbar navbar-expand-lg navbar-light bg-white justify-content-between"
+            >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+              >
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
+              <div
+                class="navbar-collapse collapse justify-content-end"
+                id="navbarNav"
+              >
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                  <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                  <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
-                  <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sobre-nosotros.html"
+                      >Sobre Nosotros</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="servicios.html">Servicios</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contratenos.html">Contrátenos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="ayuda.html">Ayuda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="php/logout.php">Cerrar Sesión</a>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -72,23 +100,54 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3>Añadir/Modificar Servicio</h3>
-                  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button
+                    type="button"
+                    class="btn btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form id="addServiceForm">
                     <div class="mb-3">
-                      <label for="nombreServicio" class="form-label">Nombre del Servicio:</label>
-                      <input type="text" class="form-control" id="nombreServicio" required />
+                      <label for="nombreServicio" class="form-label"
+                        >Nombre del Servicio:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombreServicio"
+                        required
+                      />
                     </div>
                     <div class="mb-3">
-                      <label for="descripcionServicio" class="form-label">Descripción del Servicio:</label>
-                      <textarea class="form-control" id="descripcionServicio" rows="3" required></textarea>
+                      <label for="descripcionServicio" class="form-label"
+                        >Descripción del Servicio:</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="descripcionServicio"
+                        rows="3"
+                        required
+                      ></textarea>
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" id="submitServicioBtn">Añadir</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="submitServicioBtn"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
             </div>
@@ -114,27 +173,65 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3>Añadir/Modificar Lugar</h3>
-                  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button
+                    type="button"
+                    class="btn btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form id="addLugarForm">
                     <div class="mb-3">
-                      <label for="nombreLugar" class="form-label">Nombre del Lugar:</label>
-                      <input type="text" class="form-control" id="nombreLugar" required />
+                      <label for="nombreLugar" class="form-label"
+                        >Nombre del Lugar:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombreLugar"
+                        required
+                      />
                     </div>
                     <div class="mb-3">
-                      <label for="descripcionLugar" class="form-label">Dirección del Lugar:</label>
-                      <textarea class="form-control" id="descripcionLugar" rows="3" required></textarea>
+                      <label for="descripcionLugar" class="form-label"
+                        >Dirección del Lugar:</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="descripcionLugar"
+                        rows="3"
+                        required
+                      ></textarea>
                     </div>
                     <div class="mb-3">
-                      <label for="imagenLugar" class="form-label">Imagen del Lugar:</label>
-                      <input type="file" class="form-control" id="imagenLugar" required />
+                      <label for="imagenLugar" class="form-label"
+                        >Imagen del Lugar:</label
+                      >
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="imagenLugar"
+                        required
+                      />
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" id="submitLugarBtn">Añadir</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="submitLugarBtn"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
             </div>
@@ -160,27 +257,65 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h3>Añadir/Modificar Información de Personal</h3>
-                  <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button
+                    type="button"
+                    class="btn btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
                   <form id="addPersonalForm">
                     <div class="mb-3">
-                      <label for="nombrePersona" class="form-label">Nombre y apellidos de la Persona:</label>
-                      <input type="text" class="form-control" id="nombrePersona" required />
+                      <label for="nombrePersona" class="form-label"
+                        >Nombre y apellidos de la Persona:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombrePersona"
+                        required
+                      />
                     </div>
                     <div class="mb-3">
-                      <label for="cargoPersona" class="form-label">Cargo de la Persona:</label>
-                      <input type="text" class="form-control" id="cargoPersona" required />
+                      <label for="cargoPersona" class="form-label"
+                        >Cargo de la Persona:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="cargoPersona"
+                        required
+                      />
                     </div>
                     <div class="mb-3">
-                      <label for="imagenPersona" class="form-label">Imagen de la persona:</label>
-                      <input type="file" class="form-control" id="imagenPersonal" required />
+                      <label for="imagenPersona" class="form-label"
+                        >Imagen de la persona:</label
+                      >
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="imagenPersonal"
+                        required
+                      />
                     </div>
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" id="submitPersonalBtn">Añadir</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="submitPersonalBtn"
+                  >
+                    Añadir
+                  </button>
                 </div>
               </div>
             </div>
@@ -190,7 +325,10 @@
     </div>
 
     <!-- Pie de página -->
-    <footer class="bg-white text-dark text-center py-3" style="position: fixed; bottom: 0; width: 100%">
+    <footer
+      class="bg-white text-dark text-center py-3"
+      style="position: fixed; bottom: 0; width: 100%"
+    >
       <div class="container">
         <p>&copy; 2024 ARMAVE S.A. Todos los derechos reservados.</p>
       </div>
@@ -200,21 +338,78 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
-      // Mostrar los formularios solo cuando los campos están completos
-      document.getElementById("submitServicioBtn").addEventListener("click", function() {
-        alert('Servicio añadido o modificado');
-        // Aquí iría la lógica para almacenar el servicio
-      });
+      // Función para enviar los formularios a través de AJAX
+      function enviarFormulario(url, data) {
+        fetch(url, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "success") {
+              alert("Elemento añadido o modificado correctamente.");
+            } else {
+              alert("Error al añadir/modificar el elemento.");
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      }
 
-      document.getElementById("submitLugarBtn").addEventListener("click", function() {
-        alert('Lugar añadido o modificado');
-        // Aquí iría la lógica para almacenar el lugar
-      });
+      // Administrar Servicios
+      document
+        .getElementById("submitServicioBtn")
+        .addEventListener("click", function () {
+          const nombreServicio =
+            document.getElementById("nombreServicio").value;
+          const descripcionServicio = document.getElementById(
+            "descripcionServicio"
+          ).value;
 
-      document.getElementById("submitPersonalBtn").addEventListener("click", function() {
-        alert('Personal añadido o modificado');
-        // Aquí iría la lógica para almacenar el personal
-      });
+          if (nombreServicio && descripcionServicio) {
+            enviarFormulario("php/insertar_servicio.php", {
+              nombre: nombreServicio,
+              descripcion: descripcionServicio,
+            });
+          } else {
+            alert("Por favor, completa todos los campos.");
+          }
+        });
+
+      // Administrar Lugares
+      document
+        .getElementById("submitLugarBtn")
+        .addEventListener("click", function () {
+          const nombreLugar = document.getElementById("nombreLugar").value;
+          const descripcionLugar =
+            document.getElementById("descripcionLugar").value;
+
+          if (nombreLugar && descripcionLugar) {
+            enviarFormulario("php/insertar_lugar.php", {
+              nombre: nombreLugar,
+              descripcion: descripcionLugar,
+            });
+          } else {
+            alert("Por favor, completa todos los campos.");
+          }
+        });
+
+      // Administrar Personal
+      document
+        .getElementById("submitPersonalBtn")
+        .addEventListener("click", function () {
+          const nombrePersona = document.getElementById("nombrePersona").value;
+          const cargoPersona = document.getElementById("cargoPersona").value;
+
+          if (nombrePersona && cargoPersona) {
+            enviarFormulario("php/insertar_personal.php", {
+              nombre: nombrePersona,
+              cargo: cargoPersona,
+            });
+          } else {
+            alert("Por favor, completa todos los campos.");
+          }
+        });
     </script>
   </body>
 </html>

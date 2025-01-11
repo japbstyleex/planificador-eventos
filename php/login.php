@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Verificar contraseña directamente
-        if ($password === $user['contrasena']) {
+        // Verificar contraseña usando password_verify
+        if (password_verify($password, $user['contrasena'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['nombre_usuario'];
             $_SESSION['role'] = $user['rol'];
@@ -56,4 +56,3 @@ $conexion->close();
 
 // Enviar respuesta como JSON
 echo json_encode($response);
-?>
