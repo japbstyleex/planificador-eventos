@@ -1,4 +1,4 @@
-// equivalente a window.onload = x, pero no sobrescribe permitiendo así tener varios window.onload y que todos se ejecuten
+// Equivalente a window.onload = x, pero no sobrescribe permitiendo así tener varios window.onload y que todos se ejecuten
 window.addEventListener("load", () => {
   obtenerCarrito()
     .then((resultadoCarrito) => {
@@ -16,10 +16,10 @@ window.addEventListener("load", () => {
   mostrarUsuario();
 });
 
-// funciones CRUD de carrito (Create, Read, Update, Delete)
+// Funciones CRUD de carrito (Create, Read, Update, Delete)
 // Read
 function obtenerCarrito() {
-  // devuelve Promise asíncrono, luego habrá que tratarlo con await o .then().catch()
+  // Devuelve Promise asíncrono, luego habrá que tratarlo con await o .then().catch()
   return new Promise((success, error) => {
     $.ajax({
       url: "php/carrito.php",

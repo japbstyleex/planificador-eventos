@@ -12,7 +12,7 @@ if (empty($_SESSION['user_id'])) {
 }
 
 switch ($_SERVER['REQUEST_METHOD']) {
-    case "GET": // obtener carrito de user_id
+    case "GET": // Obtener carrito de user_id
         $stmt = $conexion->prepare("SELECT id, articulo, servicio, presupuesto FROM carrito WHERE id_usuario = ?");
         if (!$stmt) {
             $response['message'] = "Error al preparar la consulta: " . $conexion->error;
@@ -34,7 +34,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $response['carrito'] = $productos;
 
         break;
-    case "POST": // añadir item al carrito de user_id
+    case "POST": // Añadir item al carrito de user_id
         $articulo = $_POST['articulo'];
         $servicio = $_POST['servicio'];
         $presupuesto = $_POST['presupuesto'];
@@ -58,7 +58,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $response['status'] = "success";
         $response['message'] = "Item añadido al carrito";
         break;
-    case "PUT": // editar item del carrito de user_id
+    case "PUT": // Editar item del carrito de user_id
         $data = json_decode(file_get_contents('php://input'), true);
         $id_articulo = $data['id_articulo'];
         $articulo = $data['articulo'];
@@ -90,7 +90,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $response['message'] = "Artículo modificado";
         }
         break;
-    case "DELETE": // eliminar item del carrito de user_id
+    case "DELETE": // Eliminar item del carrito de user_id
         $id_articulo = $_GET['id_articulo'];
 
         if (!is_numeric($id_articulo)) {
