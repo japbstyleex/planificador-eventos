@@ -20,6 +20,22 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" href="images/logo.png" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Alertify.js scripts y css-->
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/semantic.min.css"/>
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css"/>
+    <script src="scripts/alerts.js"></script>
+
+    <script src="scripts/carrito.js"></script>
   </head>
   <body style="background-color: #9adac8">
     <!-- Cabecera -->
@@ -76,6 +92,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="ayuda.html">Ayuda</a>
                   </li>
+                  <li class="nav-item"><a class="nav-link" href="grafico.html">Gráfico</a></li>
                   <li class="nav-item">
                     <a
                       class="nav-link"
@@ -449,7 +466,7 @@
           const password = document.getElementById("password").value.trim();
 
           if (!username || !password) {
-            alert("Por favor, complete todos los campos.");
+            alerta("Campos incompletos", "Por favor, complete todos los campos.");
             return;
           }
 
@@ -469,12 +486,12 @@
                 window.location.href = data.message;
               } else {
                 // Mostrar mensaje de error
-                alert(data.message);
+                alerta("Error producido", data.message);
               }
             })
             .catch((error) => {
               console.error("Error al procesar la solicitud:", error);
-              alert("Hubo un error al procesar la solicitud.");
+              alerta("Error producido", "Hubo un error al procesar la solicitud.");
             });
         });
     </script>
@@ -509,97 +526,6 @@
           });
         });
       });
-    </script>
-    <!-- Script para actualizar el carrito -->
-    <script>
-      // Función para agregar artículos al carrito
-      function agregarAlCarrito(nombre, servicio, presupuesto) {
-        // Obtener carrito desde localStorage, o crear uno nuevo si no existe
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-        // Verificar si el artículo ya existe en el carrito
-        let articulo = carrito.find(
-          (item) => item.nombre === nombre && item.servicio === servicio
-        );
-        if (articulo) {
-          // Si el artículo ya existe, solo actualizamos el presupuesto (si es necesario)
-          articulo.presupuesto = presupuesto; // Si quieres actualizar el presupuesto en lugar de agregar más cantidad
-        } else {
-          // Si no existe, lo agregamos con los nuevos detalles
-          carrito.push({ nombre, servicio, presupuesto });
-        }
-
-        // Guardamos el carrito actualizado en localStorage
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-
-        // Actualizamos el contador del carrito en la barra de navegación
-        actualizarContadorCarrito();
-      }
-
-      // Función para actualizar el contador en la barra de navegación
-      function actualizarContadorCarrito() {
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const contador = document.getElementById("carritoCount");
-        contador.textContent = carrito.length;
-      }
-
-      // Función para eliminar un artículo del carrito
-      function eliminarArticulo(index) {
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        carrito.splice(index, 1); // Eliminar el artículo por su índice
-        localStorage.setItem("carrito", JSON.stringify(carrito)); // Guardar el carrito actualizado
-        mostrarCarrito(); // Volver a cargar los artículos del carrito en el modal
-      }
-
-      // Función para mostrar los artículos en el modal del carrito
-      function mostrarCarrito() {
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const listaCarrito = document.getElementById("listaCarrito");
-        listaCarrito.innerHTML = ""; // Limpiamos la lista
-
-        if (carrito.length === 0) {
-          listaCarrito.innerHTML =
-            '<li class="list-group-item">Tu carrito está vacío.</li>';
-        } else {
-          carrito.forEach((item, index) => {
-            const li = document.createElement("li");
-            li.className = "list-group-item";
-            li.innerHTML = `
-                  <strong>Servicio:</strong> ${item.nombre}<br>
-                  <strong>Presupuesto:</strong> ${item.presupuesto} €
-                  <button class="btn btn-danger btn-sm float-end" onclick="eliminarArticulo(${index})">
-                  <img src="images/papelera.svg" alt="Eliminar" width="20" height="20"/>
-                  </button>
-                `;
-            listaCarrito.appendChild(li);
-          });
-        }
-      }
-
-      // Cuando se hace clic en el carrito, mostrar los artículos en el modal
-      document
-        .getElementById("carritoLink")
-        .addEventListener("click", function () {
-          mostrarCarrito();
-        });
-
-      // Función para redirigir a la página de pago si el carrito tiene artículos
-      document
-        .getElementById("finalizarCompra")
-        .addEventListener("click", function () {
-          let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-          if (carrito.length > 0) {
-            window.location.href = "pago.html"; // Redirige a la página de pago
-          } else {
-            alert("Tu carrito está vacío. No puedes finalizar la compra.");
-          }
-        });
-
-      // Al cargar la página, actualizar el contador del carrito
-      window.onload = function () {
-        actualizarContadorCarrito();
-      };
     </script>
   </body>
 </html>

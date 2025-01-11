@@ -64,6 +64,9 @@
                     <a class="nav-link" href="contratenos.html">Contrátenos</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="grafico.html">Gráfico</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="ayuda.html">Ayuda</a>
                   </li>
                   <li class="nav-item">
@@ -348,9 +351,9 @@
           .then((response) => response.json())
           .then((data) => {
             if (data.status === "success") {
-              alert("Elemento añadido o modificado correctamente.");
+              alerta("", "Elemento añadido o modificado correctamente.");
             } else {
-              alert("Error al añadir/modificar el elemento.");
+              alerta("Error", "Error al añadir/modificar el elemento.");
             }
           })
           .catch((error) => console.error("Error:", error));
@@ -372,7 +375,7 @@
               descripcion: descripcionServicio,
             });
           } else {
-            alert("Por favor, completa todos los campos.");
+            alerta("Administración", "Por favor, completa todos los campos.");
           }
         });
 
@@ -390,7 +393,7 @@
               descripcion: descripcionLugar,
             });
           } else {
-            alert("Por favor, completa todos los campos.");
+            alerta("Administración", "Por favor, completa todos los campos.");
           }
         });
 
@@ -407,7 +410,7 @@
               cargo: cargoPersona,
             });
           } else {
-            alert("Por favor, completa todos los campos.");
+            alerta("Administración", "Por favor, completa todos los campos.");
           }
         });
     </script>

@@ -4,10 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pago - ARMAVE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" href="images/logo.png" />
+
+    <!-- Alertify.js scripts y css-->
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"
+    />
+    <!-- Default theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"
+    />
+    <!-- Semantic UI theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/semantic.min.css"
+    />
+    <!-- Bootstrap theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css"
+    />
+    <script src="scripts/alerts.js"></script>
+
+    <script src="scripts/carrito.js"></script>
   </head>
   <body style="background-color: #9adac8">
     <!-- Cabecera -->
@@ -15,24 +49,65 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-12 col-lg-2">
-            <a href="index.html"><img src="images/image-17.png" alt="Logo de la empresa" class="img-fluid" width="100" /></a>
+            <a href="index.html"
+              ><img
+                src="images/image-17.png"
+                alt="Logo de la empresa"
+                class="img-fluid"
+                width="100"
+            /></a>
           </div>
           <div class="col-12 col-lg-10">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
-              <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <nav
+              class="navbar navbar-expand-lg navbar-light bg-white justify-content-between"
+            >
+              <button
+                class="navbar-toggler text-dark"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+              >
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
+              <div
+                class="navbar-collapse collapse justify-content-end"
+                id="navbarNav"
+              >
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                  <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                  <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
-                  <li class="nav-item"><a class="nav-link" href="contratenos.html">Contrátenos</a></li>
-                  <li class="nav-item"><a class="nav-link" href="ayuda.html">Ayuda</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sobre-nosotros.html"
+                      >Sobre Nosotros</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="servicios.html">Servicios</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contratenos.html">Contrátenos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="ayuda.html">Ayuda</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="grafico.html">Gráfico</a>
+                  </li>
                   <!-- Carrito -->
                   <li class="nav-item">
-                    <a class="nav-link" href="#" id="carritoLink" data-bs-toggle="modal" data-bs-target="#carritoModal">
-                      <img src="images/carrito.svg" alt="Carrito" style="width: 1.5rem; height: 1.5rem;" /> 
+                    <a
+                      class="nav-link"
+                      href="#"
+                      id="carritoLink"
+                      data-bs-toggle="modal"
+                      data-bs-target="#carritoModal"
+                    >
+                      <img
+                        src="images/carrito.svg"
+                        alt="Carrito"
+                        style="width: 1.5rem; height: 1.5rem"
+                      />
                       <span id="carritoCount" class="badge bg-danger">0</span>
                     </a>
                   </li>
@@ -51,8 +126,15 @@
         <form id="paymentForm" class="row g-3">
           <!-- Selección de Método de Pago -->
           <div class="col-12">
-            <label for="metodoPago" class="form-label">Selecciona un método de pago</label>
-            <select class="form-select" id="metodoPago" name="metodoPago" required>
+            <label for="metodoPago" class="form-label"
+              >Selecciona un método de pago</label
+            >
+            <select
+              class="form-select"
+              id="metodoPago"
+              name="metodoPago"
+              required
+            >
               <option value="">Elige una opción</option>
               <option value="tarjeta">Tarjeta de Crédito/Débito</option>
               <option value="transferencia">Transferencia Bancaria</option>
@@ -63,16 +145,42 @@
           <!-- Información de Tarjeta -->
           <div id="pagoTarjeta" class="d-none">
             <div class="col-md-6">
-              <label for="nombreTitular" class="form-label">Nombre del Titular</label>
-              <input type="text" class="form-control" id="nombreTitular" name="nombreTitular" placeholder="Nombre como aparece en la tarjeta" required />
+              <label for="nombreTitular" class="form-label"
+                >Nombre del Titular</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="nombreTitular"
+                name="nombreTitular"
+                placeholder="Nombre como aparece en la tarjeta"
+                required
+              />
             </div>
             <div class="col-md-6">
-              <label for="numeroTarjeta" class="form-label">Número de Tarjeta</label>
-              <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" maxlength="16" placeholder="1234 5678 9012 3456" required />
+              <label for="numeroTarjeta" class="form-label"
+                >Número de Tarjeta</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="numeroTarjeta"
+                name="numeroTarjeta"
+                maxlength="16"
+                placeholder="1234 5678 9012 3456"
+                required
+              />
             </div>
             <div class="col-md-3">
-              <label for="mesExpiracion" class="form-label">Mes de Expiración</label>
-              <select class="form-select" id="mesExpiracion" name="mesExpiracion" required>
+              <label for="mesExpiracion" class="form-label"
+                >Mes de Expiración</label
+              >
+              <select
+                class="form-select"
+                id="mesExpiracion"
+                name="mesExpiracion"
+                required
+              >
                 <option value="">Mes</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
@@ -89,8 +197,15 @@
               </select>
             </div>
             <div class="col-md-3">
-              <label for="anioExpiracion" class="form-label">Año de Expiración</label>
-              <select class="form-select" id="anioExpiracion" name="anioExpiracion" required>
+              <label for="anioExpiracion" class="form-label"
+                >Año de Expiración</label
+              >
+              <select
+                class="form-select"
+                id="anioExpiracion"
+                name="anioExpiracion"
+                required
+              >
                 <option value="">Año</option>
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
@@ -100,7 +215,15 @@
             </div>
             <div class="col-md-3">
               <label for="cvv" class="form-label">CVV</label>
-              <input type="password" class="form-control" id="cvv" name="cvv" maxlength="3" placeholder="123" required />
+              <input
+                type="password"
+                class="form-control"
+                id="cvv"
+                name="cvv"
+                maxlength="3"
+                placeholder="123"
+                required
+              />
             </div>
           </div>
 
@@ -109,7 +232,9 @@
             <div class="col-md-12">
               <p>Realiza la transferencia al siguiente número de cuenta:</p>
               <p><strong>ES00 1234 5678 9012 3456</strong></p>
-              <p>Por favor, incluye tu nombre y el ID del evento como referencia.</p>
+              <p>
+                Por favor, incluye tu nombre y el ID del evento como referencia.
+              </p>
             </div>
           </div>
 
@@ -118,7 +243,9 @@
             <div class="col-md-12">
               <p>Envía tu pago a través de Bizum al número:</p>
               <p><strong>600 123 456</strong></p>
-              <p>Por favor, incluye tu nombre y el ID del evento en el mensaje.</p>
+              <p>
+                Por favor, incluye tu nombre y el ID del evento en el mensaje.
+              </p>
             </div>
           </div>
 
@@ -132,12 +259,25 @@
     </section>
 
     <!-- Modal del carrito -->
-    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="carritoModal"
+      tabindex="-1"
+      aria-labelledby="carritoModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            <h5 class="modal-title" id="carritoModalLabel">
+              Carrito de Compras
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
           </div>
           <div class="modal-body">
             <h6>Artículos en tu carrito:</h6>
@@ -146,15 +286,26 @@
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="finalizarCompra">Finalizar Compra</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary" id="finalizarCompra">
+              Finalizar Compra
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Pie de página -->
-    <footer class="bg-white text-dark text-center py-3" style="position: fixed; bottom: 0; width: 100%">
+    <footer
+      class="bg-white text-dark text-center py-3"
+      style="position: fixed; bottom: 0; width: 100%"
+    >
       <div class="container">
         <p>&copy; 2024 ARMAVE S.A. Todos los derechos reservados.</p>
       </div>
@@ -165,124 +316,59 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script>
-      $(document).ready(function() {
-        const metodoPago = $('#metodoPago');
-        const pagoTarjeta = $('#pagoTarjeta');
-        const pagoTransferencia = $('#pagoTransferencia');
-        const pagoBizum = $('#pagoBizum');
-        const responseMessage = $('#responseMessage');
+      $(document).ready(function () {
+        const metodoPago = $("#metodoPago");
+        const pagoTarjeta = $("#pagoTarjeta");
+        const pagoTransferencia = $("#pagoTransferencia");
+        const pagoBizum = $("#pagoBizum");
+        const responseMessage = $("#responseMessage");
 
         metodoPago.change(function () {
           // Ocultar todos los métodos
-          pagoTarjeta.add(pagoTransferencia).add(pagoBizum).addClass('d-none');
+          pagoTarjeta.add(pagoTransferencia).add(pagoBizum).addClass("d-none");
 
           // Mostrar el método seleccionado
           if (metodoPago.val() === "tarjeta") {
-            pagoTarjeta.removeClass('d-none');
+            pagoTarjeta.removeClass("d-none");
           } else if (metodoPago.val() === "transferencia") {
-            pagoTransferencia.removeClass('d-none');
+            pagoTransferencia.removeClass("d-none");
           } else if (metodoPago.val() === "bizum") {
-            pagoBizum.removeClass('d-none');
+            pagoBizum.removeClass("d-none");
           }
         });
 
-        $('#paymentForm').submit(function(e) {
+        $("#paymentForm").submit(function (e) {
           e.preventDefault();
           responseMessage.empty(); // Limpiar mensaje anterior
 
           const formData = $(this).serialize(); // Recoger los datos del formulario
 
           $.ajax({
-            url: '/php/procesar_pago.php', // URL para procesar el pago
-            method: 'POST',
+            url: "/php/procesar_pago.php", // URL para procesar el pago
+            method: "POST",
             data: formData,
-            dataType: 'json',
-            success: function(response) {
+            dataType: "json",
+            success: function (response) {
               if (response.success) {
-                responseMessage.html('<div class="alert alert-success">Pago realizado con éxito. ¡Gracias por tu compra!</div>');
+                responseMessage.html(
+                  '<div class="alert alert-success">Pago realizado con éxito. ¡Gracias por tu compra!</div>'
+                );
               } else {
-                responseMessage.html('<div class="alert alert-danger">Error: ' + response.message + '</div>');
+                responseMessage.html(
+                  '<div class="alert alert-danger">Error: ' +
+                    response.message +
+                    "</div>"
+                );
               }
             },
-            error: function() {
-              responseMessage.html('<div class="alert alert-danger">Hubo un error en la comunicación con el servidor. Por favor, intenta de nuevo más tarde.</div>');
-            }
+            error: function () {
+              responseMessage.html(
+                '<div class="alert alert-danger">Hubo un error en la comunicación con el servidor. Por favor, intenta de nuevo más tarde.</div>'
+              );
+            },
           });
         });
       });
-    </script>
-    <!-- Script para actualizar el carrito -->
-    <script>
-      // Función para agregar artículos al carrito
-      function agregarAlCarrito(nombre, servicio, presupuesto) {
-        // Obtener carrito desde localStorage, o crear uno nuevo si no existe
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        
-        // Verificar si el artículo ya existe en el carrito
-        let articulo = carrito.find(item => item.nombre === nombre && item.servicio === servicio);
-        if (articulo) {
-          // Si el artículo ya existe, solo actualizamos el presupuesto (si es necesario)
-          articulo.presupuesto = presupuesto; // Si quieres actualizar el presupuesto en lugar de agregar más cantidad
-        } else {
-          // Si no existe, lo agregamos con los nuevos detalles
-          carrito.push({ nombre, servicio, presupuesto });
-        }
-        
-        // Guardamos el carrito actualizado en localStorage
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        
-        // Actualizamos el contador del carrito en la barra de navegación
-        actualizarContadorCarrito();
-      }
-    
-      // Función para actualizar el contador en la barra de navegación
-      function actualizarContadorCarrito() {
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        const contador = document.getElementById('carritoCount');
-        contador.textContent = carrito.length;
-      }
-    
-      // Función para eliminar un artículo del carrito
-      function eliminarArticulo(index) {
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito.splice(index, 1); // Eliminar el artículo por su índice
-        localStorage.setItem('carrito', JSON.stringify(carrito)); // Guardar el carrito actualizado
-        mostrarCarrito(); // Volver a cargar los artículos del carrito en el modal
-      }
-    
-      // Función para mostrar los artículos en el modal del carrito
-      function mostrarCarrito() {
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        const listaCarrito = document.getElementById('listaCarrito');
-        listaCarrito.innerHTML = ''; // Limpiamos la lista
-        
-        if (carrito.length === 0) {
-          listaCarrito.innerHTML = '<li class="list-group-item">Tu carrito está vacío.</li>';
-        } else {
-          carrito.forEach((item, index) => {
-            const li = document.createElement('li');
-            li.className = 'list-group-item';
-            li.innerHTML = `
-              <strong>Servicio:</strong> ${item.nombre}<br>
-              <strong>Presupuesto:</strong> ${item.presupuesto} €
-              <button class="btn btn-danger btn-sm float-end" onclick="eliminarArticulo(${index})">
-              <img src="images/papelera.svg" alt="Eliminar" width="20" height="20"/>
-              </button>
-            `;
-            listaCarrito.appendChild(li);
-          });
-        }
-      }
-    
-      // Cuando se hace clic en el carrito, mostrar los artículos en el modal
-      document.getElementById('carritoLink').addEventListener('click', function () {
-        mostrarCarrito();
-      });
-    
-      // Al cargar la página, actualizar el contador del carrito
-      window.onload = function () {
-        actualizarContadorCarrito();
-      };
     </script>
   </body>
 </html>

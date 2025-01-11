@@ -15,4 +15,3 @@ if ($conexion) {
 echo json_encode($response);
 
 $conexion->close();
-?>

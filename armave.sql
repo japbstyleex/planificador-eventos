@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 10.200.9.242
--- Tiempo de generación: 09-12-2024 a las 11:21:53
+-- Tiempo de generación: 10-01-2025 a las 22:08:51
 -- Versión del servidor: 10.5.21-MariaDB-1:10.5.21+maria~deb11-log
 -- Versión de PHP: 7.4.33
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `armave`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrito`
+--
+
+CREATE TABLE `carrito` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `articulo` varchar(255) NOT NULL,
+  `servicio` varchar(255) NOT NULL,
+  `presupuesto` decimal(8,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `carrito`
+--
+
+INSERT INTO `carrito` (`id`, `id_usuario`, `articulo`, `servicio`, `presupuesto`) VALUES
+(9, 5, 'Bautizo', 'Evento personalizado', 1400.00),
+(10, 5, 'Bautizo', 'Evento personalizado', 1950.00),
+(11, 5, 'ComuniÃ³n', 'Evento personalizado', 1200.00),
+(12, 5, 'MICE', 'null', 900.00),
+(13, 5, 'Bodas', 'Evento personalizado', 5450.00),
+(14, 5, 'ComuniÃ³n', 'Evento personalizado', 500.00),
+(15, 5, 'ComuniÃ³n', 'Evento personalizado', 1300.00);
 
 -- --------------------------------------------------------
 
@@ -106,7 +133,7 @@ CREATE TABLE `servicios` (
 INSERT INTO `servicios` (`id`, `nombre`, `descripcion`) VALUES
 (1, 'Bautizo', 'Evento para la celebración de bautizos con decoración y catering personalizado'),
 (2, 'Boda', 'Servicio completo para bodas, incluyendo decoración, música y banquete'),
-(3, 'Comunion', 'Servicio para celebraciones de comuniones con opciones temáticas'),
+(3, 'Comunión', 'Servicio para celebraciones de comuniones con opciones temáticas'),
 (4, 'MICE', 'Espacio y recursos para conferencias y charlas, con opciones de catering');
 
 -- --------------------------------------------------------
@@ -131,11 +158,21 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nombre_usuario`, `correo_electronico`, `contrasena`, `rol`, `fecha_registro`) VALUES
 (1, 'admin', 'admin@admin.com', 'admin', 'admin', '2024-11-25 14:25:54'),
 (2, 'joseperales', 'joseantonioperalesbayon@gmail.com', 'contrasenia1', 'usuario', '2024-11-25 14:25:54'),
-(3, 'aroa', 'aroafcor@gmail.com', 'contrasenia2', 'usuario', '2024-11-25 14:25:54');
+(3, 'aroa', 'aroafcor@gmail.com', 'contrasenia2', 'usuario', '2024-11-25 14:25:54'),
+(4, '234', 'asd@gmail.com', '$2y$10$xdgpJ8Jo53725BVPCYLlNOJow3lnP.tOgWzTm76fIS7/Z5lB7cRfy', 'usuario', '2025-01-07 15:39:25'),
+(5, 'rana', 'rana@gmail.com', '$2y$10$yyUPyXdJ/3w4.Pq1G9ebIeTF1ePLDM7iXL6nDT6fDxMDspD4kvmvW', 'usuario', '2025-01-08 15:46:42'),
+(7, 'prueba', 'prueba@prueba.com', '$2y$10$YODfYI/.kzD0lULPqMFjlu/hkkSclxbxNl1V8eAnyxRKDqeY4XrqK', 'usuario', '2025-01-10 20:42:36');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `lugares`
@@ -175,6 +212,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT de la tabla `lugares`
 --
 ALTER TABLE `lugares`
@@ -202,11 +245,17 @@ ALTER TABLE `servicios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `carrito`
+--
+ALTER TABLE `carrito`
+  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
 
 --
 -- Filtros para la tabla `preferencias_usuarios`
