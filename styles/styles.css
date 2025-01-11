@@ -102,5 +102,5 @@ a:hover {
 .card-img-top {
   width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
   height: 200px; /* Altura fija para todas las imágenes */
-  object-fit: cover; /* Recorta la imagen para que ocupe completamente el área sin distorsión */
+  object-fit: cover; /* Recorta la imagen para que ocupe completamente el área sin distorsion */
 }
